@@ -1,13 +1,11 @@
-import { useState } from "react";
-import "./App.css";
-import Start from "./assets/Pages/start";
-import Home from "./assets/Pages/home";
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
-function App() {
+import { logo } from "../../../../public/logo-large.png";
+
+const Start = () => {
   return (
     <>
       <section className="start-logo-sect">
@@ -22,6 +20,6 @@ function App() {
       </section>
     </>
   );
-}
+};
 
-export default App;
+export default Start;
