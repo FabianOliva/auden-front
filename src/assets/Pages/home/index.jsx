@@ -5,7 +5,8 @@ import bell from "../../../public/bell.png";
 import history from "../../../public/history.png";
 import angel from "../../../public/cherub.svg";
 import headphones from "../../../public/headphones.svg";
-import 
+import map from "../../../public/map.svg";
+import question from "../../../public/question.svg";
 
 const Home = () => {
   const [animationStep, setAnimationStep] = useState(1);
@@ -45,7 +46,8 @@ const Home = () => {
         </a>
         <a className="main-card">
           <div className="main-card-img">
-            <img src="" alt="" />
+            <img src={question} alt="" />
+            <img src={map} alt="" />
           </div>
           <div className="main-card-text">
             <p className="main-card-text-title">Música Contextual</p>
