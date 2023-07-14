@@ -12,10 +12,13 @@ html {
 body {
   margin: 0;
   padding: 0;
+}
+
+.app-main-cont {
   background-image: url("https://cdn.discordapp.com/attachments/1004477978081767474/1129122414383616231/Gif_Auden.gif");
 }
 
-#root {
+.app-main-cont-bg-filter {
   background-color: #fdfeff82;
 }
 
