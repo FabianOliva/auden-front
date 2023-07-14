@@ -4,9 +4,23 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 90px;
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(253, 254, 255, 0) 25%,
+    rgba(255, 141, 10, 0.134) 75%,
+    rgba(255, 141, 10, 0.251) 100%
+  );
 }
 .navbar_container p {
   font-weight: 500;
+}
+.navbar_container img {
+  margin-left: 20px;
+}
+.relleno {
+  margin-right: 40px;
 }
 /* ---------Inputs-------- */
 .form_container_login {
@@ -17,7 +31,6 @@
 .labels_input {
   justify-content: left;
   width: 90%;
-  margin-top: 16px;
 }
 .labels_input p {
   margin-bottom: 12px;
@@ -30,10 +43,13 @@
   border-color: rgba(128, 128, 128, 0.275);
   border-style: solid;
   height: 27px;
-  width: 100%;
+  width: 95%;
   padding: 9px;
   padding-right: 0px;
   font-size: medium;
+}
+.labels_input.password {
+  margin-top: 20px;
 }
 .labels_input input:hover {
   border-color: orange;
@@ -47,7 +63,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 .footer p {
   margin-top: 40px;

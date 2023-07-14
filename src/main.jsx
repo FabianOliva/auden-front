@@ -4,6 +4,9 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Login } from "./assets/Pages/log-in/index.jsx";
 import "./index.css";
+import Home from "./assets/Pages/home/index.jsx";
+import { Register } from "./assets/Pages/sign-up/index.jsx";
+import { Registeruser } from "./assets/Pages/sign-up/register-next.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +17,21 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/Registeruser",
+    element: <Registeruser />,
     // errorElement: <ErrorPage />,
   },
 ]);

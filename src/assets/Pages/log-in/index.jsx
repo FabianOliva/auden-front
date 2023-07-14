@@ -7,7 +7,7 @@ export const Login = () => {
       <nav className="navbar_container">
         <img src="src\public\left-icon-placeholder.png" alt="<-" />
         <p>Iniciar Sesión</p>
-        <div></div>
+        <div className="relleno"></div>
       </nav>
       <form action="">
         <div className="form_container_login">
@@ -17,14 +17,16 @@ export const Login = () => {
               <input type="text" />
             </label>
           </div>
-          <div className="labels_input">
+          <div className="labels_input password">
             <label htmlFor="">
               <p>Contraseña:</p>
               <input type="text" />
             </label>
           </div>
           <div className="footer">
-            <a href="">Iniciar Sesión</a>
+            <a className="Default_btn active" href="">
+              Iniciar Sesión
+            </a>
             <p>¿Olvidaste tu contraseña?</p>
           </div>
         </div>

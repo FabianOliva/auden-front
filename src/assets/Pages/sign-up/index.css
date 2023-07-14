@@ -1,0 +1,45 @@
+.p_title {
+  text-align: center;
+  margin-top: 0%;
+  font-size: 27px;
+  font-weight: 500;
+}
+.footer.register {
+  margin-top: 10px;
+  align-items: start;
+}
+.footer.register p {
+  margin-top: 0px;
+  font-weight: 500;
+  font-size: 12px;
+  color: gray;
+}
+.Default_btn.active.register {
+  margin-top: 180px;
+}
+
+/* ----------------------------------Register - User -------------------------- */
+
+.check {
+  display: flex;
+  align-items: center;
+}
+.check input {
+  appearance: none;
+  width: 27px;
+  margin-right: 10px;
+  border-color: rgba(128, 128, 128, 0.566);
+  border-width: 3px;
+  border-style: solid;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.terms {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+.terms a {
+  color: orange;
+  text-decoration: none;
+  font-weight: 500 !important;
+}
