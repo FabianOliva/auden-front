@@ -1,18 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./index.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-  },
-]);
+import { CupidoMusical } from "./assets/components/CupidoMusical/CupidoMusical";
+import { MusicaContextual } from "./assets/components/MusicaContextual/MusicaContextual";
+import { PlaylistGenerada } from "./assets/components/PlaylistGenerada/PlaylistGenerada";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/cupido-musical" element={<CupidoMusical />} />
+        <Route path="/musica-contextual" element={<MusicaContextual />} />
+        <Route path="/playlist-generada" element={<PlaylistGenerada />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
