@@ -12,27 +12,39 @@ export const Registeruser = () => {
         <p className="p_title">Ingresa un nombre de usuario y contraseña.</p>
         <div className="form_container_login">
           <div className="labels_input register">
-            <label htmlFor="">
-              <p>Nombre de Usuario</p>
-              <input type="text" />
-              <div className="footer register"></div>
-            </label>
-            <label htmlFor="">
-              <p>Contraseña:</p>
-              <input type="text" />
-              <div className="footer register">
-                <p>Deberá contener al menos 8 caracteres.</p>
-              </div>
-              <div className="check">
-                <input type="checkbox" name="" id="" />
-                <p className="terms">
-                  He leído y acepto los <a href="">Términos</a> y{" "}
-                  <a href="">Condiciones</a>.
-                </p>
-              </div>
-            </label>
+            {/* --------------INPUT NAME--------------- */}
+            <div className="labels_input name error">
+              {/* ADD ERROR or OK */}
+              <label htmlFor="">
+                <p>Nombre de Usuario</p>
+                <input type="text" />
+                <span className="name_span error">
+                  {/* ADD ERROR or OK */}
+                  El nombre de usuario no está disponible
+                </span>
+                {/* --------------INPUT PASSWORD--------------- */}
+              </label>{" "}
+            </div>
+            <div className="labels_input password ok">
+              {/* ADD ERROR or OK */}
+              <label htmlFor="">
+                <p>Contraseña:</p>
+                <input type="text" />
+                <span className="password_span ok">
+                  {/* ADD ERROR or OK */}
+                  Deberá contener al menos 8 caracteres.
+                </span>
+                <div className="check">
+                  <input type="checkbox" name="" id="" />
+                  <p className="terms">
+                    He leído y acepto los <a href="">Términos</a> y{" "}
+                    <a href="">Condiciones</a>.
+                  </p>
+                </div>
+              </label>
+            </div>
           </div>
-          <a className="Default_btn active register" href="">
+          <a className="Default_btn standar" href="">
             Continuar
           </a>
         </div>

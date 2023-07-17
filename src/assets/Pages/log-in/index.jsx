@@ -9,22 +9,28 @@ export const Login = () => {
         <p>Iniciar Sesión</p>
         <div className="relleno"></div>
       </nav>
+      {/* FORM */}
       <form action="">
         <div className="form_container_login">
+          {/* --------------INPUT NAME--------------- */}
           <div className="labels_input">
+            {/* ADD OK  */}
             <label htmlFor="">
               <p>Nombre de Usuario o E-mail:</p>
               <input type="text" />
             </label>
           </div>
-          <div className="labels_input password">
+          {/* -------------INPUT PASSWORD------------- */}
+          <div className="labels_input password ">
+            {/* ADD ERROR or OK  */}
             <label htmlFor="">
               <p>Contraseña:</p>
-              <input type="text" />
+              <input type="text" />{" "}
             </label>
           </div>
+          {/*----------- BUTTON------------- */}
           <div className="footer">
-            <a className="Default_btn active" href="">
+            <a className="Default_btn standar" href="">
               Iniciar Sesión
             </a>
             <p>¿Olvidaste tu contraseña?</p>
