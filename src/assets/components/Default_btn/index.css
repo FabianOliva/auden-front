@@ -17,6 +17,11 @@
   color: #fdfeff;
 }
 
+.standar {
+  background-color: rgba(146, 146, 146, 0.429);
+  color: #fdfeff;
+}
+
 .login {
   color: #26262e;
   border: 2px solid #26262e;
