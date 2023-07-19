@@ -13,6 +13,10 @@ export const PlaylistGenerada = () => {
             <BackgroundB>
                 <HeaderB subtitulo="Generada del Cupido Musical" tituloPrincipal="Playlist Generada" />
 
+                <div className="dinamic-block-container">
+                    
+                </div>
+
                 <div className="cover-container">
                     <div id='img-cover1' className="cover-1"></div>
                     <div id='img-cover2' className="cover-2"></div>

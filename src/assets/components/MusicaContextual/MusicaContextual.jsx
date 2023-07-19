@@ -1,6 +1,32 @@
 import React, { useState } from 'react';
 import './musicaContextual.css';
 import HeaderA from '../Subcomponentes/HeaderA/HeaderA';
+import InputStyled from '../Subcomponentes/InputStyled/InputStyled';
+import BackgroundA from '../Subcomponentes/BackgroundA/BackgroundA';
+
+const customOptions = [
+    { label: 'Ejercicio Físico', value: 'ejercicio-fisico' },
+    { label: 'Limpieza', value: 'limpieza' },
+    { label: 'Celebración', value: 'celebracion' },
+    { label: 'Dormir', value: 'dormir' },
+    { label: 'Meditar', value: 'meditar' },
+    { label: 'Social', value: 'social' },
+    { label: 'Estudiar', value: 'estudiar' },
+    { label: 'Relajación', value: 'relajacion' },
+    { label: 'Viajando', value: 'viajando' },
+];
+
+const customOptions2 = [
+    { label: 'Prueba 1', value: 'ejercicio-fisico' },
+    { label: 'Prueba 2', value: 'limpieza' },
+    { label: 'Prueba 3', value: 'celebracion' },
+];
+
+const customOptions3 = [
+    { label: 'Elemento A', value: 'ejercicio-fisico' },
+    { label: 'Elemento B', value: 'limpieza' },
+    { label: 'Elemento C', value: 'celebracion' },
+];
 
 export const MusicaContextual = () => {
     const [activeGenres, setActiveGenres] = useState([]);
@@ -26,68 +52,20 @@ export const MusicaContextual = () => {
 
     return (
         <>
-            <section className='musica-contextual-container'>
+            <BackgroundA>
+                <HeaderA tituloPrincipal="Música Contextual" />
 
-                <HeaderA tituloPrincipal="Musica Contextual" />
-
-
-                <div className="combobox-container">
-                    <div className="combobox-titulo-container">
-                        <h4>¿Cuál es tu ocasión?</h4>
-                    </div>
-
-                    <div className="combobox-combo-container">
-                        <select className="select-box">
-                            <option value="" disabled selected hidden>Actividad</option>
-                            <option className='estilo-prueba' value="ejercicio-fisico">Ejercicio Físico</option>
-                            <option value="limpieza">Limpieza</option>
-                            <option value="celebracion">Celebración</option>
-                            <option value="dormir">Dormir</option>
-                            <option value="meditar">Meditar</option>
-                            <option value="social">Social</option>
-                            <option value="estudiar">Estudiar</option>
-                            <option value="relajacion">Relajación</option>
-                            <option value="viajando">Viajando</option>
-                        </select>
-                    </div>
-
-                    <div className="combobox-titulo-container">
-                        <h4>¿Cómo te sientes?</h4>
-                    </div>
-
-                    <div className="combobox-combo-container">
-                        <select className="select-box">
-                            <option value="" disabled selected hidden>Actividad</option>
-                            <option className='estilo-prueba' value="ejercicio-fisico">Ejercicio Físico</option>
-                            <option value="limpieza">Limpieza</option>
-                            <option value="celebracion">Celebración</option>
-                            <option value="dormir">Dormir</option>
-                            <option value="meditar">Meditar</option>
-                            <option value="social">Social</option>
-                            <option value="estudiar">Estudiar</option>
-                            <option value="relajacion">Relajación</option>
-                            <option value="viajando">Viajando</option>
-                        </select>
-                    </div>
-
-                    <div className="combobox-titulo-container">
-                        <h4>¿Cómo está el clima?</h4>
-                    </div>
-
-                    <div className="combobox-combo-container">
-                        <select className="select-box">
-                            <option value="" disabled selected hidden>Actividad</option>
-                            <option className='estilo-prueba' value="ejercicio-fisico">Ejercicio Físico</option>
-                            <option value="limpieza">Limpieza</option>
-                            <option value="celebracion">Celebración</option>
-                            <option value="dormir">Dormir</option>
-                            <option value="meditar">Meditar</option>
-                            <option value="social">Social</option>
-                            <option value="estudiar">Estudiar</option>
-                            <option value="relajacion">Relajación</option>
-                            <option value="viajando">Viajando</option>
-                        </select>
-                    </div>
+                <div className="bloque-a-MC-container">
+                    <h4>¿Cuál es tu ocasión?</h4>
+                    <InputStyled options={customOptions} /> {/* Pasa customOptions como prop */}
+                </div>
+                <div className="bloque-b-MC-container">
+                    <h4>¿Cómo te sientes?</h4>
+                    <InputStyled options={customOptions2} /> {/* Pasa customOptions como prop */}
+                </div>
+                <div className="bloque-c-MC-container">
+                    <h4>¿Cómo esta el clima?</h4>
+                    <InputStyled options={customOptions3} /> {/* Pasa customOptions como prop */}
                 </div>
 
                 <div className="filtros-container">
@@ -233,7 +211,7 @@ export const MusicaContextual = () => {
                         </button>
                     </div>
                 </div>
-            </section>
+            </BackgroundA>
         </>
     );
 };
