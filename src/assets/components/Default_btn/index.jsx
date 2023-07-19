@@ -2,7 +2,7 @@ import "./index.css";
 
 export const Default_btn_Active = (props) => {
   return (
-    <a href="" className="Default_btn active">
+    <a href="" className="Default_btn actived">
       {props.text}
     </a>
   );

@@ -1,37 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
-
-* {
-  font-family: "Rubik", sans-serif;
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .app-main-cont {
   background-image: url("https://cdn.discordapp.com/attachments/1004477978081767474/1129122414383616231/Gif_Auden.gif");
 }
 
 .app-main-cont-bg-filter {
   background-color: #fdfeff82;
-}
-
-a {
-  text-decoration: none;
-}
-
-.a {
-  opacity: 50%;
-}
-
-.a.active {
-  opacity: 100%;
 }
 
 .start-logo-sect {
