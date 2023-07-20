@@ -25,7 +25,7 @@ function App() {
             <Default_btn_login text="Continuar con Apple" img={apple} />
           </div>
           <div className="start-login">
-            <a className="start-login-text" href="">
+            <a className="start-login-text" href="http://localhost:5173/login">
               Iniciar Sesion
             </a>
           </div>
