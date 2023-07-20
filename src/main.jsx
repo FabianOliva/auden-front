@@ -7,6 +7,7 @@ import "./index.css";
 import Home from "./assets/Pages/home/index.jsx";
 import { Register } from "./assets/Pages/sign-up/index.jsx";
 import { Registeruser } from "./assets/Pages/sign-up/register-next.jsx";
+import { Recuperarcuenta } from "./assets/Pages/rec-cuenta/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
   {
     path: "/Registeruser",
     element: <Registeruser />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/recuperarcuenta",
+    element: <Recuperarcuenta />,
     // errorElement: <ErrorPage />,
   },
 ]);
