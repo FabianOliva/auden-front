@@ -43,7 +43,9 @@
   border-color: rgba(128, 128, 128, 0.275);
   border-style: solid;
   height: 27px;
-  width: 90%;
+
+  width: 95%;
+
   padding: 9px;
   padding-right: 0px;
   font-size: medium;
@@ -67,6 +69,7 @@
   font-size: 17px;
   font-weight: 500;
 }
+
 .labels_input.password img {
   width: 20px;
   height: 20px;
@@ -77,3 +80,4 @@
   display: flex;
   align-items: center;
 }
+

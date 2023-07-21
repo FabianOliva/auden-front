@@ -66,9 +66,15 @@
   flex-direction: row;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
-.main-card-img {
+.main-card:hover {
+  background-color: rgba(196, 192, 192, 0.275);
+}
+
+.main-card-img,
+.main-card-img2 {
   width: 86px;
   height: 100%;
   background-color: #26262e;
@@ -101,148 +107,61 @@
   margin: 0;
 }
 
-.angel {
-  position: absolute;
-  width: 65.25px;
-  height: 102.21px;
-  top: 10px;
-  left: 11px;
-  transform: rotate(0deg);
-  z-index: 20;
+.main-card-text p {
+  color: black;
+}
+.step-1 {
+  background-image: url("../../../public/animation-step=1.png");
 }
 
-.headphones {
-  position: absolute;
-  width: 72px;
-  height: 70px;
-  top: 2.5px;
-  left: -8px;
-  transform: rotate(-14deg);
-  z-index: 10;
+.step-2 {
+  background-image: url("../../../public/animation-step=2.png");
 }
 
-/* @keyframes animation-step-1 {
-  0% {
-    width: 65.25189208984375px;
-    height: 102.21821594238281px;
-    top: 7px;
-    left: 11px;
-    transform: rotate(0deg);
-  }
-  100% {
-    width: 46.33716532888303px;
-    height: 72.58796612999008px;
-    top: 5.911376953125px;
-    left: 0.646484375px;
-    transform: rotate(7.26deg);
-  }
+.step-3 {
+  background-image: url("../../../public/animation-step=3.png");
 }
 
-@keyframes animation-step-2 {
-  0% {
-    width: 46.33716532888303px;
-    height: 72.58796612999008px;
-    top: 5.911376953125px;
-    left: 0.646484375px;
-    transform: rotate(7.26deg);
-  }
-  100% {
-    width: 46.33716602834271px;
-    height: 72.58796722570568px;
-    top: 1.8330078125px;
-    left: 8.452880859375px;
-    transform: rotate(-2.2deg);
-  }
+.step-4 {
+  background-image: url("../../../public/animation-step=4.png");
 }
 
-@keyframes animation-step-3 {
-  0% {
-    width: 46.33px;
-    height: 72.58px;
-    top: 1.83px;
-    left: 8.45px;
-    transform: rotate(-2.2deg);
-  }
-  100% {
-    width: 40.6px;
-    height: 69.39px;
-    top: 5.26px;
-    left: 8.32px;
-    transform: rotate(2.66deg);
-  }
+.step-5 {
+  background-image: url("../../../public/animation-step=5.png");
 }
 
-@keyframes animation-step-4 {
-  0% {
-    width: 40.6px;
-    height: 69.39px;
-    top: 5.26px;
-    left: 8.32px;
-    transform: rotate(2.66deg);
-  }
-  100% {
-    width: 46.33px;
-    height: 72.58px;
-    top: 5.91px;
-    left: 0.64px;
-    transform: rotate(7.26deg);
-  }
+.step-6 {
+  background-image: url("../../../public/animation-step=6.png");
 }
 
-@keyframes animation-step-5 {
-  0% {
-    width: 46.33px;
-    height: 72.58px;
-    top: 5.91px;
-    left: 0.64px;
-    transform: rotate(7.26deg);
-  }
-  100% {
-    width: 26.5px;
-    height: 25.76px;
-    top: 10.46px;
-    left: 60.47px;
-    transform: rotate(-25.07deg);
-  }
+.main-card-img {
+  animation: animation-step 6s linear infinite;
 }
 
-.angel {
-  animation: animation-step-1 1s;
-  z-index: 10;
+.step2-1 {
+  background-image: url("../../../public/animation-step=1.svg");
 }
 
-.headphones {
-  animation: animation-step-1 1s;
+.step2-2 {
+  background-image: url("../../../public/animation-step=2.svg");
 }
 
-.angel.step-2 {
-  animation: animation-step-2 1s;
+.step2-3 {
+  background-image: url("../../../public/animation-step=3.svg");
 }
 
-.headphones.step-2 {
-  animation: animation-step-2 1s;
+.step2-4 {
+  background-image: url("../../../public/animation-step=4.svg");
 }
 
-.angel.step-3 {
-  animation: animation-step-3 1s;
+.step2-5 {
+  background-image: url("../../../public/animation-step=5.svg");
 }
 
-.headphones.step-3 {
-  animation: animation-step-3 1s;
+.step2-6 {
+  background-image: url("../../../public/animation-step=6.svg");
 }
 
-.angel.step-4 {
-  animation: animation-step-4 1s;
+.main-card-img2 {
+  animation: animation-step2 6s linear infinite;
 }
-
-.headphones.step-4 {
-  animation: animation-step-4 1s;
-}
-
-.angel.step-5 {
-  animation: animation-step-5 1s;
-}
-
-.headphones.step-5 {
-  animation: animation-step-5 1s;
-} */

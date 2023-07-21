@@ -1,44 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
-
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
-
-* {
-  font-family: "Rubik", sans-serif;
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .app-main-cont {
   background-image: url("https://cdn.discordapp.com/attachments/1004477978081767474/1129122414383616231/Gif_Auden.gif");
 }
 
 .app-main-cont-bg-filter {
   background-color: #fdfeff82;
-}
-
-a {
-  text-decoration: none;
-}
-
-.a {
-  opacity: 50%;
-}
-
-.a.active {
-  opacity: 100%;
 }
 
 .start-logo-sect {
@@ -49,11 +14,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 141, 10, 0.199),
-    rgba(255, 141, 10, 0) 50%
-  );
+  background-image: linear-gradient(to bottom, rgba(255, 141, 10, 0.199), rgba(255, 141, 10, 0) 50%);
 }
 
 .start-logo-cont {

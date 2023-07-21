@@ -6,14 +6,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background: linear-gradient(
-    180deg,
-    rgba(253, 254, 255, 0) 25%,
-    rgba(255, 142, 10, 0.133647) 84.37%,
-    rgba(255, 142, 10, 0.225) 100%
-  );
+      180deg,
+      rgba(253, 254, 255, 0) 25%,
+      rgba(255, 142, 10, 0.133647) 84.37%,
+      rgba(255, 142, 10, 0.225) 100%
+    ),
+    #fdfeff;
 }
 
 .Nav_Bar-element {
@@ -24,6 +25,7 @@
   width: 64px;
   height: 46px;
   gap: 4px;
+  cursor: pointer;
 }
 
 .Nav_Bar-element-img {
@@ -37,4 +39,5 @@
   line-height: 18px;
   padding: 0;
   margin: 0;
+  color: #26262e;
 }
