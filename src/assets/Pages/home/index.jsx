@@ -46,15 +46,6 @@ const Home = () => {
       <main className="home-main">
         <a className="main-card">
           <div className={`main-card-img step-${animationStep}`}></div>
-          <div className="main-card-img">
-            <img src={angel} alt="" className={`angel step-${animationStep}`} onAnimationEnd={handleAnimationEnd} />
-            <img
-              src={headphones}
-              alt=""
-              className={`headphones step-${animationStep}`}
-              onAnimationEnd={handleAnimationEnd}
-            />
-          </div>
           <div className="main-card-text">
             <p className="main-card-text-title">Cupido Musical</p>
             <p className="main-card-text-text">Tus artistas favoritos nunca van a dejarte con el corazón roto.</p>

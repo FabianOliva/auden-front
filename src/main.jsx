@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Search from "./assets/Pages/search/index.jsx";
+import { Login } from "./assets/Pages/log-in/index.jsx";
 
 import "./index.css";
 import Home from "./assets/Pages/home/index.jsx";
