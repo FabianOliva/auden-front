@@ -8,17 +8,34 @@ import headphones from "../../../public/headphones.svg";
 
 const Home = () => {
   const [animationStep, setAnimationStep] = useState(1);
+  const [animationStep2, setAnimationStep2] = useState(1);
 
-  const handleAnimationEnd = () => {
-    if (animationStep < 6) {
-      setAnimationStep(animationStep + 1);
-    } else {
-      setAnimationStep(1);
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (animationStep < 6) {
+        setAnimationStep(animationStep + 1);
+      } else {
+        setAnimationStep(1);
+      }
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, [animationStep]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (animationStep2 < 6) {
+        setAnimationStep2(animationStep2 + 1);
+      } else {
+        setAnimationStep2(1);
+      }
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, [animationStep2]);
 
   return (
-    <div className="home-main-cont">
+    <div className="home-main-cont page-container">
       <header className="home-header">
         <h1 className="home-header-title">Música ya</h1>
         <div className="home-header-icons">
@@ -28,20 +45,9 @@ const Home = () => {
       </header>
       <main className="home-main">
         <a className="main-card">
-          <div className="main-card-img">
-            <img
-              src={angel}
-              alt=""
-              className={`angel step-${animationStep}`}
-              onAnimationEnd={handleAnimationEnd}
-            />
-            <img
-              src={headphones}
-              alt=""
-              className={`headphones step-${animationStep}`}
-              onAnimationEnd={handleAnimationEnd}
-            />
-          </div>
+
+          <div className={`main-card-img step-${animationStep}`}></div>
+
           <div className="main-card-text">
             <p className="main-card-text-title">Cupido Musical</p>
             <p className="main-card-text-text">
@@ -50,9 +56,7 @@ const Home = () => {
           </div>
         </a>
         <a className="main-card">
-          <div className="main-card-img">
-            <img src="" alt="" />
-          </div>
+          <div className={`main-card-img2 step2-${animationStep2}`}></div>
           <div className="main-card-text">
             <p className="main-card-text-title">Música Contextual</p>
             <p className="main-card-text-text">
@@ -62,12 +66,10 @@ const Home = () => {
           </div>
         </a>
       </main>
-      <Nav_Bar
-        homeOpacity="100%"
-        searchOpacity="50%"
-        accountOpacity="50%"
-        friendsOpacity="50%"
-      />
+
+      <Nav_Bar homeOpacity="100%" searchOpacity="50%" accountOpacity="50%" friendsOpacity="50%" />
+     
+
     </div>
   );
 };

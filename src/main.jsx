@@ -8,13 +8,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Search from "./assets/Pages/search/index.jsx";
+
 import { Login } from "./assets/Pages/log-in/index.jsx";
 
 import "./index.css";
 import Home from "./assets/Pages/home/index.jsx";
 import { Register } from "./assets/Pages/sign-up/index.jsx";
 import { Registeruser } from "./assets/Pages/sign-up/register-next.jsx";
+
 import { Recuperarcuenta } from "./assets/Pages/rec-cuenta/index.jsx";
+
 
 
 
@@ -35,6 +40,13 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
   },
   {
+
+    path: "/search",
+    element: <Search />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+
     path: "/register",
     element: <Register />,
     // errorElement: <ErrorPage />,
@@ -44,11 +56,13 @@ const router = createBrowserRouter([
     element: <Registeruser />,
     // errorElement: <ErrorPage />,
   },
+
   {
     path: "/recuperarcuenta",
     element: <Recuperarcuenta />,
     // errorElement: <ErrorPage />,
   },
+
 ]);
 
 

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./index.css";
 
@@ -17,6 +18,7 @@ export const Login = () => {
           {" "}
           <img src="src\public\left-icon-placeholder.png" alt="<-" />
         </a>
+
         <p>Iniciar Sesión</p>
         <div className="relleno"></div>
       </nav>
@@ -36,6 +38,7 @@ export const Login = () => {
             {/* ADD ERROR or OK  */}
             <label htmlFor="">
               <p>Contraseña:</p>
+
               <div className="input_img">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -52,10 +55,12 @@ export const Login = () => {
                   onClick={toggleShowPassword}
                 />
               </div>
+
             </label>
           </div>
           {/*----------- BUTTON------------- */}
           <div className="footer">
+
             <a
               href="http://localhost:5173/home"
               className="Default_btn standar"
@@ -65,6 +70,7 @@ export const Login = () => {
             <a href="http://localhost:5173/recuperarcuenta">
               <p>¿Olvidaste tu contraseña?</p>
             </a>
+
           </div>
         </div>
       </form>

@@ -29,7 +29,9 @@ export const Registeruser = () => {
               {/* ADD ERROR or OK */}
               <label htmlFor="">
                 <p>Contraseña:</p>
+
                 <input type="password" />
+
                 <span className="password_span ok">
                   {/* ADD ERROR or OK */}
                   Deberá contener al menos 8 caracteres.
