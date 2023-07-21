@@ -4,13 +4,13 @@ import "./index.css";
 import { Default_btn_Active, Default_btn_Inactive } from "../../components/Default_btn";
 import Filter from "../../components/filters";
 import { Last_Search_Comp, Search_Comp } from "../../components/Search_Component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Search = () => {
   const [isInputFocused, setInputFocused] = useState(false);
-
   const [inputValue, setInputValue] = useState("");
   const [EmptyInput, setEmptyInput] = useState(true);
+  const [contentToShow, setContentToShow] = useState(null);
 
   const handleInputFocus = () => {
     setInputFocused(true);
@@ -19,6 +19,7 @@ const Search = () => {
   const handleBackArrowClick = () => {
     setInputFocused(false);
     setInputValue("");
+    setEmptyInput(true);
   };
 
   const handleInputChange = (event) => {
@@ -27,112 +28,113 @@ const Search = () => {
     setEmptyInput(value === "");
   };
 
-  let contentToShow;
+  useEffect(() => {
+    switch (true) {
+      case EmptyInput && !isInputFocused:
+        setContentToShow(
+          <div className="search_top20_cont">
+            <div className="search_top20_title">
+              <p>Top 20s</p>
+              <hr />
+            </div>
+            <div className="search_top20">
+              <Song_box
+                title="Flowers"
+                artist="Miley Cyrus"
+                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
+              />
+              <Song_box
+                title="Flowers"
+                artist="Miley Cyrus"
+                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
+              />
+              <Song_box
+                title="Flowers"
+                artist="Miley Cyrus"
+                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
+              />
+              <Song_box
+                title="Flowers"
+                artist="Miley Cyrus"
+                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
+              />
+              <Song_box
+                title="Flowers"
+                artist="Miley Cyrus"
+                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
+              />
+            </div>
+          </div>
+        );
+        break;
+      case EmptyInput && isInputFocused:
+        setContentToShow(
+          <div className="search_active last_search">
+            <div className="search_last_search_title">
+              <p>Busqueda Reciente</p>
+              <hr />
+            </div>
+            <div className="last_search_cont">
+              <Last_Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="Bizarrap"
+                subtitle="Artist"
+              />
+              <Last_Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="Bizarrap"
+                subtitle="Artist"
+              />
+              <Last_Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="Bizarrap"
+                subtitle="Artist"
+              />
+              <Last_Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="Bizarrap"
+                subtitle="Artist"
+              />
+            </div>
+          </div>
+        );
+        break;
+      case !EmptyInput && isInputFocused:
+        setContentToShow(
+          <div className="search_active last_search">
+            <div className="search_last_search_title2">
+              <p>Resultado Sugerido</p>
+            </div>
+            <div className="last_search_cont">
+              <Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="HOLA"
+                subtitle="Artist"
+              />
+              <Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="HOLA"
+                subtitle="Artist"
+              />
+              <Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="HOLA"
+                subtitle="Artist"
+              />
+              <Search_Comp
+                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
+                title="HOLA"
+                subtitle="Artist"
+              />
+            </div>
+          </div>
+        );
+        break;
+      default:
+        setContentToShow(null);
+    }
+  }, [isInputFocused, inputValue, EmptyInput]); //
 
-  switch (true) {
-    case EmptyInput && !isInputFocused:
-      contentToShow = (
-        <div className="search_top20_cont">
-          <div className="search_top20_title">
-            <p>Top 20s</p>
-            <hr />
-          </div>
-          <div className="search_top20">
-            <Song_box
-              title="Flowers"
-              artist="Miley Cyrus"
-              url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-            />
-            <Song_box
-              title="Flowers"
-              artist="Miley Cyrus"
-              url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-            />
-            <Song_box
-              title="Flowers"
-              artist="Miley Cyrus"
-              url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-            />
-            <Song_box
-              title="Flowers"
-              artist="Miley Cyrus"
-              url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-            />
-            <Song_box
-              title="Flowers"
-              artist="Miley Cyrus"
-              url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-            />
-          </div>
-        </div>
-      );
-      break;
-    case EmptyInput && isInputFocused:
-      contentToShow = (
-        <div className="search_active last_search">
-          <div className="search_last_search_title">
-            <p>Busqueda Reciente</p>
-            <hr />
-          </div>
-          <div className="last_search_cont">
-            <Last_Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="Bizarrap"
-              subtitle="Artist"
-            />
-            <Last_Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="Bizarrap"
-              subtitle="Artist"
-            />
-            <Last_Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="Bizarrap"
-              subtitle="Artist"
-            />
-            <Last_Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="Bizarrap"
-              subtitle="Artist"
-            />
-          </div>
-        </div>
-      );
-      break;
-    case !EmptyInput && isInputFocused:
-      contentToShow = (
-        <div className="search_active last_search">
-          <div className="search_last_search_title2">
-            <p>Resultado Sugerido</p>
-          </div>
-          <div className="last_search_cont">
-            <Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="HOLA"
-              subtitle="Artist"
-            />
-            <Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="HOLA"
-              subtitle="Artist"
-            />
-            <Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="HOLA"
-              subtitle="Artist"
-            />
-            <Search_Comp
-              url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-              title="HOLA"
-              subtitle="Artist"
-            />
-          </div>
-        </div>
-      );
-      break;
-    default:
-      contentToShow = null;
-  }
   return (
     <div className="search_cont">
       <div className="search_header">
