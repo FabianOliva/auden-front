@@ -90,6 +90,7 @@
   box-sizing: border-box;
   padding: 0 16px 0 50px;
   outline: transparent;
+  transition-duration: 0.2s;
 }
 
 .search_header_input_icon {
