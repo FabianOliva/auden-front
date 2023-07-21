@@ -45,22 +45,31 @@ const Home = () => {
       </header>
       <main className="home-main">
         <a className="main-card">
+
           <div className={`main-card-img step-${animationStep}`}></div>
+
           <div className="main-card-text">
             <p className="main-card-text-title">Cupido Musical</p>
-            <p className="main-card-text-text">Tus artistas favoritos nunca van a dejarte con el corazón roto.</p>
+            <p className="main-card-text-text">
+              Tus artistas favoritos nunca van a dejarte con el corazón roto.
+            </p>
           </div>
         </a>
         <a className="main-card">
           <div className={`main-card-img2 step2-${animationStep2}`}></div>
           <div className="main-card-text">
             <p className="main-card-text-title">Música Contextual</p>
-            <p className="main-card-text-text"> Creamos la playlist perfecta para cualquier situación.</p>
+            <p className="main-card-text-text">
+              {" "}
+              Creamos la playlist perfecta para cualquier situación.
+            </p>
           </div>
         </a>
       </main>
+
       <Nav_Bar homeOpacity="100%" searchOpacity="50%" accountOpacity="50%" friendsOpacity="50%" />
-      <Nav_Bar />
+     
+
     </div>
   );
 };
