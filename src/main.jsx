@@ -5,22 +5,27 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./index.css";
 
-import { CupidoMusical } from "./assets/components/CupidoMusical/CupidoMusical";
-import { MusicaContextual } from "./assets/components/MusicaContextual/MusicaContextual";
-import { PlaylistGenerada } from "./assets/components/PlaylistGenerada/PlaylistGenerada";
-import { PlaylistGeneradaBuscador } from "./assets/components/PlaylistGeneradaBuscador/PlaylistGeneradaBuscador";
-// import { InputStyled } from "./assets/components/InputStyled/InputStyled";
+
+import { CupidoMusical } from "./assets/Pages/CupidoMusical/CupidoMusical";
+import { MusicaContextual } from "./assets/Pages/MusicaContextual/MusicaContextual";
+import { PlaylistGeneradaBuscador } from "./assets/Pages/PlaylistGeneradaBuscador/PlaylistGeneradaBuscador";
+import { UserProfile } from "./assets/Pages/UserProfile/UserProfile";
+import Configuracion from "./assets/Pages/Configuracion/Configuracion";
+import { PlaylistGenerada } from "./assets/Pages/PlaylistGenerada/PlaylistGenerada";
+
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/cupido-musical" element={<CupidoMusical />} />
+        <Route path="/cupido-musical" element={<CupidoMusical/>} />
         <Route path="/musica-contextual" element={<MusicaContextual />} />
         <Route path="/playlist-generada" element={<PlaylistGenerada />} />
         <Route path="/playlist-generada-buscador" element={<PlaylistGeneradaBuscador />} />
-        {/* <Route path="/prueba" element={<InputStyled />} /> */}
+        <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/configuracion" element={<Configuracion />} />
+        
 
  
       </Routes>
