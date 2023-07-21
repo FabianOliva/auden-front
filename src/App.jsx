@@ -1,21 +1,15 @@
 import "./App.css";
-
-import Home from "./assets/Pages/home";
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
 import "./index.css";
 import logo from "../src/public/logo-large.png";
 
-import * as React from "react";
 import {
   Default_btn_Active,
   Default_btn_login,
 } from "./assets/components/Default_btn";
-import logo from "../src/public/logo-large.png";
+
 import google from "../src/public/google-icon.png";
 import apple from "../src/public/apple-icon.png";
-
 
 function App() {
   return (
