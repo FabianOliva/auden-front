@@ -1,6 +1,9 @@
 import "./App.css";
 import * as React from "react";
-import { Default_btn_Active, Default_btn_login } from "./assets/components/Default_btn";
+import {
+  Default_btn_Active,
+  Default_btn_login,
+} from "./assets/components/Default_btn";
 import logo from "../src/public/logo-large.png";
 import google from "../src/public/google-icon.png";
 import apple from "../src/public/apple-icon.png";

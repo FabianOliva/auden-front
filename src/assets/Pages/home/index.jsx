@@ -3,6 +3,8 @@ import Nav_Bar from "../../components/Nav_bar";
 import "./index.css";
 import bell from "../../../public/bell.png";
 import history from "../../../public/history.png";
+import angel from "../../../public/cherub.svg";
+import headphones from "../../../public/headphones.svg";
 
 const Home = () => {
   const [animationStep, setAnimationStep] = useState(1);
@@ -44,6 +46,15 @@ const Home = () => {
       <main className="home-main">
         <a className="main-card">
           <div className={`main-card-img step-${animationStep}`}></div>
+          <div className="main-card-img">
+            <img src={angel} alt="" className={`angel step-${animationStep}`} onAnimationEnd={handleAnimationEnd} />
+            <img
+              src={headphones}
+              alt=""
+              className={`headphones step-${animationStep}`}
+              onAnimationEnd={handleAnimationEnd}
+            />
+          </div>
           <div className="main-card-text">
             <p className="main-card-text-title">Cupido Musical</p>
             <p className="main-card-text-text">Tus artistas favoritos nunca van a dejarte con el corazón roto.</p>
@@ -57,6 +68,7 @@ const Home = () => {
           </div>
         </a>
       </main>
+      <Nav_Bar homeOpacity="100%" searchOpacity="50%" accountOpacity="50%" friendsOpacity="50%" />
       <Nav_Bar />
     </div>
   );

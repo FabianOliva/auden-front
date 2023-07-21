@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import Home from "./assets/Pages/home/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Search from "./assets/Pages/search/index.jsx";
 
 import "./index.css";
+import Home from "./assets/Pages/home/index.jsx";
+import { Register } from "./assets/Pages/sign-up/index.jsx";
+import { Registeruser } from "./assets/Pages/sign-up/register-next.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
     // errorElement: <ErrorPage />,
   },
   {
@@ -21,6 +28,16 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <Search />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/Registeruser",
+    element: <Registeruser />,
     // errorElement: <ErrorPage />,
   },
 ]);

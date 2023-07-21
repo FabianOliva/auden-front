@@ -42,7 +42,11 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to bottom, rgba(255, 141, 10, 0.199), rgba(255, 141, 10, 0) 50%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 141, 10, 0.199),
+    rgba(255, 141, 10, 0) 50%
+  );
 }
 
 .start-logo-cont {
