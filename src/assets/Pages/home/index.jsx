@@ -44,7 +44,7 @@ const Home = () => {
         </div>
       </header>
       <main className="home-main">
-        <a className="main-card">
+        <div className="main-card">
           <div className={`main-card-img step-${animationStep}`}></div>
           <NavLink className="link_card" to="/cupido-musical">
             <div className="main-card-text">
@@ -54,19 +54,20 @@ const Home = () => {
               </p>
             </div>
           </NavLink>
-        </a>
-        <NavLink to="/musica-contextual">
-          <a className="main-card">
-            <div className={`main-card-img2 step2-${animationStep2}`}></div>
+        </div>
+
+        <div className="main-card">
+          <div className={`main-card-img2 step2-${animationStep2}`}></div>{" "}
+          <NavLink to="/musica-contextual">
             <div className="main-card-text">
               <p className="main-card-text-title">Música Contextual</p>
               <p className="main-card-text-text">
                 {" "}
                 Creamos la playlist perfecta para cualquier situación.
               </p>
-            </div>
-          </a>
-        </NavLink>
+            </div>{" "}
+          </NavLink>
+        </div>
       </main>
 
       <Nav_Bar
