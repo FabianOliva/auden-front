@@ -27,7 +27,7 @@ const Nav_Bar = () => {
           <p className="Nav_Bar-element-text">Perfil</p>
         </div>
       </NavLink>
-      <NavLink className="a" to="/account">
+      <NavLink className="a" to="/amigos">
         <div className="Nav_Bar-element friends">
           <img src={friends} alt="" className="Nav_Bar-element-img" />
           <p className="Nav_Bar-element-text">Amigos</p>
