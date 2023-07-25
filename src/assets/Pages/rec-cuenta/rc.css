@@ -1,6 +1,11 @@
 .Default_btn.active.create {
   margin-top: 250px;
 }
+
+.recpuperar {
+  color: white;
+}
+
 .modal_recuperar img {
   width: 50px;
 }
@@ -31,10 +36,8 @@
   margin: auto;
 }
 .slide-in-blurred-top {
-  -webkit-animation: slide-in-blurred-top 0.3s
-    cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
-  animation: slide-in-blurred-top 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19)
-    both;
+  -webkit-animation: slide-in-blurred-top 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: slide-in-blurred-top 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 }
 .slit-out-vertical {
   -webkit-animation: slit-out-vertical 0.5s ease-in both;

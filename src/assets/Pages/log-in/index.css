@@ -30,7 +30,13 @@
 }
 .labels_input {
   justify-content: left;
-  width: 90%;
+  width: 85%;
+  gap: 12px;
+}
+.labels_input label {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
 }
 .labels_input p {
   margin-bottom: 12px;
@@ -42,13 +48,13 @@
   border-top-right-radius: 15px;
   border-color: rgba(128, 128, 128, 0.275);
   border-style: solid;
-  height: 27px;
-
-  width: 95%;
-
+  height: 48px;
+  width: 100%;
+  box-sizing: border-box;
   padding: 9px;
   padding-right: 0px;
   font-size: medium;
+  outline: 0px;
 }
 .labels_input.password {
   margin-top: 20px;
@@ -68,16 +74,17 @@
   margin-top: 40px;
   font-size: 17px;
   font-weight: 500;
+  text-decoration: none;
+  color: #26262e;
 }
 
 .labels_input.password img {
   width: 20px;
   height: 20px;
-  position: relative;
-  right: 30px;
+  position: absolute;
+  right: 45px;
 }
 .input_img {
   display: flex;
   align-items: center;
 }
-
