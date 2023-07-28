@@ -23,6 +23,7 @@ body {
 
 .app-main-cont {
   background-image: url("https://cdn.discordapp.com/attachments/1004477978081767474/1129122414383616231/Gif_Auden.gif");
+  background-size: 100%;
 }
 
 .app-main-cont-bg-filter {
@@ -49,11 +50,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 141, 10, 0.199),
-    rgba(255, 141, 10, 0) 50%
-  );
+  background-image: linear-gradient(to bottom, rgba(255, 141, 10, 0.199), rgba(255, 141, 10, 0) 50%);
 }
 
 .start-logo-cont {
@@ -100,8 +97,19 @@ a {
   justify-content: center;
 }
 
+.start-login-text:hover {
+  text-shadow: 0px 4px 11px #00000064;
+}
+
 .start-login-text {
   text-decoration: none;
   color: #26262e;
   font-weight: 500;
+}
+
+@media (min-width: 1400px) {
+  .app-main-cont {
+    background-blend-mode: hue;
+    background-image: url("https://drive.google.com/file/d/1TOMLnWGSPSSQaWbKOP8bU7zKaY-GPkuk/view?usp=drive_link");
+  }
 }

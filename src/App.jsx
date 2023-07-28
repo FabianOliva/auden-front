@@ -2,11 +2,9 @@ import "./App.css";
 import React from "react";
 import "./index.css";
 import logo from "../src/public/logo-large.png";
+import { Link } from "react-router-dom";
 
-import {
-  Default_btn_Active,
-  Default_btn_login,
-} from "./assets/components/Default_btn";
+import { Default_btn_Active, Default_btn_login } from "./assets/components/Default_btn";
 
 import google from "../src/public/google-icon.png";
 import apple from "../src/public/apple-icon.png";
@@ -23,14 +21,16 @@ function App() {
         </section>
         <section className="start-btns-sect">
           <div className="start-btns-cont">
-            <Default_btn_Active text="Registrarse Gratis" />
+            <Link to="/register">
+              <Default_btn_Active text="Registrarse Gratis" />
+            </Link>
             <Default_btn_login text="Continuar con Google" img={google} />
             <Default_btn_login text="Continuar con Apple" img={apple} />
           </div>
           <div className="start-login">
-            <a className="start-login-text" href="http://localhost:5173/login">
-              Iniciar Sesion
-            </a>
+            <Link to="/login">
+              <a className="start-login-text">Iniciar Sesion</a>
+            </Link>
           </div>
         </section>
       </div>
