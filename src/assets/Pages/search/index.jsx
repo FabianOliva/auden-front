@@ -14,6 +14,23 @@ const Search = () => {
   const [inputValue, setInputValue] = useState("");
   const [EmptyInput, setEmptyInput] = useState(true);
   const [contentToShow, setContentToShow] = useState(null);
+  //fetch
+  const [fetchDataSong, setFetchDataSong] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost:3002/joins`);
+      const dataSongs = await response.json();
+      setFetchDataSong(dataSongs);
+      console.log(dataSongs);
+    } catch (error) {
+      console.log("fallo", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleInputFocus = () => {
     setInputFocused(true);
@@ -47,31 +64,14 @@ const Search = () => {
               <hr />
             </div>
             <div className="search_top20">
-              <Song_box
-                title="Flowers"
-                artist="Miley Cyrus"
-                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-              />
-              <Song_box
-                title="Flowers"
-                artist="Miley Cyrus"
-                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-              />
-              <Song_box
-                title="Flowers"
-                artist="Miley Cyrus"
-                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-              />
-              <Song_box
-                title="Flowers"
-                artist="Miley Cyrus"
-                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-              />
-              <Song_box
-                title="Flowers"
-                artist="Miley Cyrus"
-                url="https://i.scdn.co/image/ab67616d0000b273f429549123dbe8552764ba1d"
-              />
+              {fetchDataSong.map((song) => (
+                <Song_box
+                  key={song.song_id}
+                  title={song.song_name}
+                  artist={song.artist_name}
+                  url={song.song_image_url}
+                />
+              ))}
             </div>
           </div>
         );
