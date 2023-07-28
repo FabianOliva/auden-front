@@ -1,11 +1,14 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export const Register = () => {
   return (
     <div className="login_container">
       <nav className="navbar_container">
-        <img src="src\public\left-icon-placeholder.png" alt="<-" />
+        <Link to="/">
+          <img src="src\public\left-icon-placeholder.png" alt="<-" />
+        </Link>
         <p>Crear Cuenta</p>
         <div className="relleno"></div>
       </nav>
@@ -21,10 +24,7 @@ export const Register = () => {
               </div>
             </label>
           </div>
-          <a
-            className="Default_btn active register"
-            href="http://localhost:5173/registeruser"
-          >
+          <a className="Default_btn active register" href="http://localhost:5173/registeruser">
             Continuar
           </a>
         </div>
