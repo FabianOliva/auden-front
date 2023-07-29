@@ -1,23 +1,24 @@
-import React from 'react';
-import './SongRow.css';
+import React from "react";
+import "./SongRow.css";
+import right_icon_placeholder from "../../../public/right-icon-placeholder.svg";
 
-const SongRow = () => {
-    return (
-        <>
-            <div className="songs-row">
-                <div className="song-cover"><img src="src/public/image-placeholder.png" alt="" /></div>
-                <div className="song-info-container">
-                    <div className="song-name">Waiting For Love</div>
-                    <div className="song-artist">Avicci</div>
-                </div>
-                <div className="song-options">
-                    <img src="src/public/right-icon-placeholder.svg" alt="" />
-                </div>
-            </div>
-
-        </>
-
-    )
-}
+const SongRow = ({ name, artist, url }) => {
+  return (
+    <>
+      <div className="songs-row">
+        <div className="song-cover">
+          <img src={url} alt="" />
+        </div>
+        <div className="song-info-container">
+          <div className="song-name">{name}</div>
+          <div className="song-artist">{artist}</div>
+        </div>
+        <div className="song-options">
+          <img src={right_icon_placeholder} alt="" />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default SongRow;

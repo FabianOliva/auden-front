@@ -8,34 +8,26 @@ import CardPortadaMultiple from "../../components/CardPortadaMultiple/CardPortad
 import Nav_Bar from "../../components/Nav_bar";
 
 export const UserProfile = () => {
+  const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [DataUsers, setDataUsers] = useState([]);
   const [userPlaylistData, setUserPlaylistData] = useState([]);
 
-  const userData = async () => {
-    try {
-      const response = await fetch(`http://localhost:3002/users/account/fabitti`);
-      const dataUsers = await response.json();
-      setDataUsers(dataUsers[0]);
-      console.log(dataUsers[0].user_name);
-    } catch (error) {
-      console.log("fallo", error);
-    }
-  };
-
-  const userPlaylists = async () => {
-    try {
-      const response = await fetch(`http://localhost:3002/users/playlist/fabitti`);
-      const dataPlaylist = await response.json();
-      setUserPlaylistData(dataPlaylist);
-      console.log(dataPlaylist);
-    } catch (error) {
-      console.log("fallo", error);
-    }
-  };
-
   useEffect(() => {
-    userData();
-    userPlaylists();
+    // We define an async function to fetch the data, so we can use await inside it
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:3002/users/playlist/fabitti`);
+        const data = await response.json();
+        setDataUsers(data[0]);
+        setUserPlaylistData(data);
+        setLoading(false); // Once data is fetched and processed, set loading to false
+      } catch (error) {
+        console.log("fallo", error);
+        setLoading(false); // Set loading to false even in case of an error
+      }
+    };
+
+    fetchData();
   }, []);
 
   const groupSongsByPlaylist = () => {
@@ -48,6 +40,7 @@ export const UserProfile = () => {
       if (!songsByPlaylist[playlistId]) {
         // Si la playlist no existe en el objeto, la creamos
         songsByPlaylist[playlistId] = {
+          playlist_id: playlistId,
           playlist_name: songData.playlist_name,
           user_username: DataUsers.user_username,
           songs: [],
@@ -65,48 +58,52 @@ export const UserProfile = () => {
 
   return (
     <>
-      <BackgroundC>
-        <div className="picture-name-container fade-in-left">
-          <div className="picture-container">
-            <div id="profile-photo" className="profile-photo">
-              <img src="src/public/user-default.png" alt="" />
+      {!loading && (
+        <BackgroundC>
+          <div className="picture-name-container fade-in-left">
+            <div className="picture-container">
+              <div id="profile-photo" className="profile-photo">
+                <img src="src/public/user-default.png" alt="" />
+              </div>
+            </div>
+
+            <div className="name-container">
+              <h2>{DataUsers.user_name}</h2>
+              <h5>@{DataUsers.user_username}</h5>
+              <Link to="/configuracion" className="gear-style">
+                <span>
+                  <img src="src/public/gear.svg" alt="" />
+                </span>
+              </Link>
             </div>
           </div>
 
-          <div className="name-container">
-            <h2>{DataUsers.user_name}</h2>
-            <h5>@{DataUsers.user_username}</h5>
-            <Link to="/configuracion" className="gear-style">
-              <span>
-                <img src="src/public/gear.svg" alt="" />
-              </span>
-            </Link>
+          <div className="playlist-user-controls">
+            <span>
+              <h5>Mis Playlist</h5>
+            </span>
+            <img src="src/public/divider.svg" alt="" />
+            <div id="btn-crear-playlist" className="btn-crear-playlist">
+              <a href="">Crear Playlist</a>
+            </div>
           </div>
-        </div>
 
-        <div className="playlist-user-controls">
-          <span>
-            <h5>Mis Playlist</h5>
-          </span>
-          <img src="src/public/divider.svg" alt="" />
-          <div id="btn-crear-playlist" className="btn-crear-playlist">
-            <a href="">Crear Playlist</a>
+          <div className="playlist-box-container">
+            {groupSongsByPlaylist().map((playlistData) => (
+              <Link key={playlistData.playlist_id} to={`/playlist/${playlistData.playlist_id}`}>
+                <CardPortadaMultiple
+                  key={playlistData.playlist_id}
+                  images={playlistData.songs.map((song) => song.song_image_url)}
+                  name={playlistData.playlist_name}
+                  user={playlistData.user_username}
+                />
+              </Link>
+            ))}
           </div>
-        </div>
 
-        <div className="playlist-box-container">
-          {groupSongsByPlaylist().map((playlistData) => (
-            <CardPortadaMultiple
-              key={playlistData.playlist_id}
-              images={playlistData.songs.map((song) => song.song_image_url)}
-              name={playlistData.playlist_name}
-              user={playlistData.user_username}
-            />
-          ))}
-        </div>
-
-        <Nav_Bar />
-      </BackgroundC>
+          <Nav_Bar />
+        </BackgroundC>
+      )}
     </>
   );
 };

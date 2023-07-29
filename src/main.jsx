@@ -15,7 +15,8 @@ import { PlaylistGeneradaBuscador } from "./assets/Pages/PlaylistGeneradaBuscado
 import { UserProfile } from "./assets/Pages/UserProfile/UserProfile";
 import { PlaylistGenerada } from "./assets/Pages/PlaylistGenerada/PlaylistGenerada.jsx";
 import Configuracion from "./assets/Pages/Configuracion/Configuracion";
-import  Amigos  from "./assets/Pages/Amigos/Amigos.jsx";
+import Amigos from "./assets/Pages/Amigos/Amigos.jsx";
+import { Playlist } from "./assets/Pages/playlist/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -31,10 +32,11 @@ createRoot(document.getElementById("root")).render(
         <Route path="/cupido-musical" element={<CupidoMusical />} />
         <Route path="/musica-contextual" element={<MusicaContextual />} />
         <Route path="/playlist-generada" element={<PlaylistGenerada />} />
-        <Route path="/playlist-generada-buscador" element={<PlaylistGeneradaBuscador />}/>
+        <Route path="/playlist-generada-buscador" element={<PlaylistGeneradaBuscador />} />
+        <Route path="/playlist/:playlist_Id" element={<Playlist />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/configuracion" element={<Configuracion />} />
-        <Route path="/amigos" element={<Amigos/>} />
+        <Route path="/amigos" element={<Amigos />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
