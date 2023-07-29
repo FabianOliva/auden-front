@@ -1,29 +1,33 @@
-import React from 'react'
-import './CardPortadaMultiple.css';
+import React from "react";
+import "./CardPortadaMultiple.css";
+import imgdefault from "../../../public/default.png";
 
-const CardPortadaMultiple = () => {
-    return (
-        <>
-            <div className='portada-playlist-multiple-container'>
-                <div id='portadaPlaylistmultiple' className="portada-playlist-multiple-cover">
-                    <div id='portadaMultipleCover1' className="portadaMultipleCover1">
-                        <img src="src/public/bad-bunny-cover.png" alt="" />
-                    </div>
-                    <div id='portadaMultipleCover2' className="portadaMultipleCover2">
-                        <img src="src\public\jhayco-cover.png" alt="" />
-                    </div>
-                    <div id='portadaMultipleCover3' className="portadaMultipleCover3">
-                        <img src="src\public\duki-cover.png" alt="" />
-                    </div>
-                    <div id='portadaMultipleCover4' className="portadaMultipleCover4">
-                        <img src="src\public\eladio-cover.png" alt="" />
-                    </div>
-                </div>
-                <h4 id='nombrePlaylist'>Nombre de la playlist</h4>
-                <h5 id='usuariosPlaylist'>nombres_de_usuario</h5>
+const CardPortadaMultiple = ({ images, name, user }) => {
+  const defaultImageUrl = imgdefault;
 
+  while (images.length < 4) {
+    images.push(defaultImageUrl);
+  }
+
+  if (images.every((image) => !image)) {
+    images.fill(defaultImageUrl);
+  }
+
+  return (
+    <>
+      <div className="portada-playlist-multiple-container">
+        <div id="portadaPlaylistmultiple" className="portada-playlist-multiple-cover">
+          {images.slice(0, 4).map((image, index) => (
+            <div key={index} className={`portadaMultipleCover${index + 1}`}>
+              {image ? <img src={image} alt="" /> : <img src={defaultImageUrl} alt="" />}
             </div>
-        </>)
-}
+          ))}
+        </div>
+        <h4 id="nombrePlaylist">{name}</h4>
+        <h5 id="usuariosPlaylist">{user}</h5>
+      </div>
+    </>
+  );
+};
 
-export default CardPortadaMultiple
+export default CardPortadaMultiple;
