@@ -14,22 +14,38 @@ const Search = () => {
   const [inputValue, setInputValue] = useState("");
   const [EmptyInput, setEmptyInput] = useState(true);
   const [contentToShow, setContentToShow] = useState(null);
-  //fetch
   const [fetchDataSong, setFetchDataSong] = useState([]);
+  const [dataArtistAndAlbum, setDataArtistAndAlbum] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
       const response = await fetch(`http://localhost:3002/joins`);
       const dataSongs = await response.json();
       setFetchDataSong(dataSongs);
-      console.log(dataSongs);
+      setLoading(false);
     } catch (error) {
       console.log("fallo", error);
+      setLoading(false);
+    }
+  };
+  const fetchDataArtistAndAlbum = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3002/joins/albumandartist`
+      );
+      const data = await response.json();
+      setDataArtistAndAlbum(data);
+      setLoading(false);
+    } catch (error) {
+      console.log("fallo", error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchData();
+    fetchDataArtistAndAlbum();
   }, []);
 
   const handleInputFocus = () => {
@@ -52,7 +68,7 @@ const Search = () => {
     const changeContentWithDelay = (content) => {
       setTimeout(() => {
         setContentToShow(content);
-      }, 500); //
+      }, 100);
     };
 
     switch (true) {
@@ -64,12 +80,45 @@ const Search = () => {
               <hr />
             </div>
             <div className="search_top20">
-              {fetchDataSong.map((song) => (
-                <Song_box
+              {loading ? (
+                <div>Realizando búsqueda...</div>
+              ) : fetchDataSong.length > 0 ? (
+                fetchDataSong.map((song) => (
+                  <Song_box
+                    key={song.song_id}
+                    title={song.song_name}
+                    artist={song.artist_name}
+                    url={song.song_image_url}
+                  />
+                ))
+              ) : (
+                <div>No se encontraron resultados</div>
+              )}
+            </div>
+          </div>
+        );
+        break;
+      case !EmptyInput && isInputFocused:
+        // Filtrar el array fetchDataSong en función del texto ingresado
+        const filteredSongs = fetchDataSong.filter((song) =>
+          song.song_name.toLowerCase().includes(inputValue.toLowerCase())
+        );
+
+        changeContentWithDelay(
+          <div
+            className="search_active last_search slide-right"
+            id="elementToAnimate4"
+          >
+            <div className="search_last_search_title2">
+              <p>Resultado Sugerido</p>
+            </div>
+            <div className="last_search_cont">
+              {filteredSongs.map((song) => (
+                <Search_Comp
                   key={song.song_id}
-                  title={song.song_name}
-                  artist={song.artist_name}
                   url={song.song_image_url}
+                  title={song.artist_name}
+                  subtitle={song.song_name}
                 />
               ))}
             </div>
@@ -80,78 +129,34 @@ const Search = () => {
         changeContentWithDelay(
           <div
             className="search_active last_search slide-right"
-            id="elementToAnimate3"
-          >
-            <div className="search_last_search_title">
-              <p>Busqueda Reciente</p>
-              <hr />
-            </div>
-            <div className="last_search_cont">
-              <Last_Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="Bizarrap"
-                subtitle="Artist"
-              />
-              <Last_Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="Bizarrap"
-                subtitle="Artist"
-              />
-              <Last_Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="Bizarrap"
-                subtitle="Artist"
-              />
-              <Last_Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="Bizarrap"
-                subtitle="Artist"
-              />
-            </div>
-          </div>
-        );
-        break;
-      case !EmptyInput && isInputFocused:
-        changeContentWithDelay(
-          <div
-            className="search_active last_search slide-right"
             id="elementToAnimate4"
           >
             <div className="search_last_search_title2">
               <p>Resultado Sugerido</p>
             </div>
             <div className="last_search_cont">
-              <Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="HOLA"
-                subtitle="Artist"
-              />
-              <Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="HOLA"
-                subtitle="Artist"
-              />
-              <Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="HOLA"
-                subtitle="Artist"
-              />
-              <Search_Comp
-                url="https://i.scdn.co/image/ab6761610000e5eb12085fdb28f314e01ef73a19"
-                title="HOLA"
-                subtitle="Artist"
-              />
+              {loading ? (
+                <div>Realizando búsqueda...</div>
+              ) : fetchDataSong.length > 0 ? (
+                fetchDataSong.map((song) => (
+                  <Search_Comp
+                    key={song.song_id}
+                    title={song.song_name}
+                    artist={song.artist_name}
+                    url={song.song_image_url}
+                  />
+                ))
+              ) : (
+                <div>No se encontraron resultados</div>
+              )}
             </div>
           </div>
         );
-
         break;
       default:
         setContentToShow(null);
     }
-  }, [isInputFocused, inputValue, EmptyInput]); //
-
-  useEffect(() => {}, [isInputFocused]);
+  }, [isInputFocused, inputValue, EmptyInput, loading]);
 
   useEffect(() => {
     const elementToAnimate = document.getElementById("elementToAnimate");
