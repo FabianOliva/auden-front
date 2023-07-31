@@ -5,13 +5,9 @@ import BackgroundC from "../../components/BackgroundC/BackgroundC";
 import Nav_Bar from "../../components/Nav_bar";
 
 const Amigos = () => {
-  // LE DICE A LA FLECHITA A QUE VENTANA TIENE QUE IR
-  // const irAHome = "/home";
-  //_________________________________________________
   return (
     <>
       <BackgroundC>
-        {/* <HeaderA tituloPrincipal="Configuración" redirectUrl={irAHome} /> */}
         <div className="amigos-box-titulo">
           <h3>
             Compartí tu <span className="letraslocas">perfil</span> y tu <span className="letraslocas">musica</span> con
