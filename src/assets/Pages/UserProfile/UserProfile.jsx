@@ -13,17 +13,16 @@ export const UserProfile = () => {
   const [userPlaylistData, setUserPlaylistData] = useState([]);
 
   useEffect(() => {
-    // We define an async function to fetch the data, so we can use await inside it
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3002/users/playlist/fabitti`);
+        const response = await fetch(`http://localhost:3002/users/playlist/fabi`);
         const data = await response.json();
         setDataUsers(data[0]);
         setUserPlaylistData(data);
-        setLoading(false); // Once data is fetched and processed, set loading to false
+        setLoading(false);
       } catch (error) {
         console.log("fallo", error);
-        setLoading(false); // Set loading to false even in case of an error
+        setLoading(false);
       }
     };
 

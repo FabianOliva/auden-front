@@ -211,7 +211,6 @@
   width: 100%;
   overflow-y: scroll;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   max-height: calc(100% - 48px);
 }

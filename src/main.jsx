@@ -17,6 +17,7 @@ import { PlaylistGenerada } from "./assets/Pages/PlaylistGenerada/PlaylistGenera
 import Configuracion from "./assets/Pages/Configuracion/Configuracion";
 import Amigos from "./assets/Pages/Amigos/Amigos.jsx";
 import { Playlist } from "./assets/Pages/playlist/index.jsx";
+import ErrorPage from "./assets/Pages/error/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -37,6 +38,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/configuracion" element={<Configuracion />} />
         <Route path="/amigos" element={<Amigos />} />
+        <Route path="/error" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
