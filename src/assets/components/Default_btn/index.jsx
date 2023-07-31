@@ -1,5 +1,5 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
 export const Default_btn_Active = (props) => {
   return (

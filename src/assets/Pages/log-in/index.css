@@ -30,7 +30,7 @@
 }
 .labels_input {
   justify-content: left;
-  width: 85%;
+  width: 100%;
   gap: 12px;
 }
 .labels_input label {
@@ -78,7 +78,7 @@
   color: #26262e;
 }
 
-.labels_input.password img {
+.labels_input.passwordd img {
   width: 20px;
   height: 20px;
   position: absolute;
