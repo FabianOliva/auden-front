@@ -6,7 +6,7 @@ import Nav_Bar from "../../components/Nav_bar";
 
 const Amigos = () => {
   // LE DICE A LA FLECHITA A QUE VENTANA TIENE QUE IR
-  const irAHome = "/home";
+  // const irAHome = "/home";
   //_________________________________________________
   return (
     <>

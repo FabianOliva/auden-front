@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 export const Playlist = () => {
   const [playlistSongs, setPlaylistSongs] = useState([]);
   const [playlistData, setPlaylistData] = useState({});
+  const [totalTime, setTotalTime] = useState("");
 
   const { playlist_Id } = useParams();
 
@@ -27,6 +28,15 @@ export const Playlist = () => {
       .then(([playlistDataResponse, playlistSongsResponse]) => {
         setPlaylistData(playlistDataResponse[0]);
         setPlaylistSongs(playlistSongsResponse);
+        const totalDurationInSeconds = playlistSongsResponse.reduce((acc, song) => {
+          const minutes = song.song_duration.minutes || 0;
+          const seconds = song.song_duration.seconds || 0;
+          acc += minutes * 60 + seconds;
+          return acc;
+        }, 0);
+        const totalMinutes = Math.floor(totalDurationInSeconds / 60);
+        const totalSeconds = totalDurationInSeconds % 60;
+        setTotalTime(`${totalMinutes}m ${totalSeconds}s`);
       })
       .catch((error) => console.error("Error en las solicitudes:", error));
   }, [playlist_Id]);
@@ -58,7 +68,7 @@ export const Playlist = () => {
               <img src={share} alt="" />
             </div>
 
-            <div className="playlist-time">1h 17m</div>
+            <div className="playlist-time">{totalTime}</div>
 
             <div className="playlist-time-ico">
               <img src={time} alt="" />
