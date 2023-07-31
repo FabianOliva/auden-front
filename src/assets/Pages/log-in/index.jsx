@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import "./index.css";
 
 export const Login = () => {
-  //Diseño
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const handlePasswordChange = (event) => {
@@ -10,61 +10,6 @@ export const Login = () => {
   };
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
-  };
-  //---------------USER-VALIDATOR---------------/
-
-  const [fetchDatUser, setFetchDataUser] = useState([]);
-
-  const fetchDataUser = async () => {
-    try {
-      const response = await fetch(`http://localhost:3002/users`);
-      const dataUsers = await response.json();
-      setFetchDataUser(dataUsers);
-      console.log(dataUsers);
-      //setLoading(false);
-    } catch (error) {
-      console.log("fallo al traer usuarios", error);
-      //setLoading(false);
-    }
-  };
-  useEffect(() => {
-    fetchDataUser();
-  }, []);
-
-  //--------------------------VALIDAR-----------------------/
-
-  const [formData, setFormData] = useState({
-    nombreoemail: "",
-    password: "",
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-    console.log(formData);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí puedes realizar la solicitud al servidor para validar los datos
-    // FormData contendrá el correo electrónico y la contraseña ingresados por el usuario
-    console.log(formData);
-
-    // Realizar la solicitud HTTP al backend utilizando fetch
-    // fetch("http://tu-servidor.com/api/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data); // Manejar la respuesta del servidor aquí
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error al enviar formulario:", error);
-    //   });
   };
   return (
     <div className="login_container">
@@ -82,35 +27,41 @@ export const Login = () => {
         <div className="form_container_login">
           {/* --------------INPUT NAME--------------- */}
           <div className="labels_input">
+            {/* ADD OK  */}
             <label htmlFor="">
               <p>Nombre de Usuario o E-mail:</p>
-              <input
-                type="text"
-                name="nombreoemail"
-                value={formData.nombreoemail}
-                onChange={handleChange}
-              />
+              <input type="text" />
             </label>
           </div>
           {/* -------------INPUT PASSWORD------------- */}
-          <div className="labels_input passwordd ">
+          <div className="labels_input password ">
+            {/* ADD ERROR or OK  */}
             <label htmlFor="">
               <p>Contraseña:</p>
+
               <div className="input_img">
                 <input
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={handlePasswordChange}
                 />
-                {/* ... Resto del código ... */}
+                <img
+                  src={
+                    showPassword
+                      ? "src/public/ojo.png"
+                      : "src/public/ojo-cerrado.png"
+                  }
+                  alt="Toggle password visibility"
+                  onClick={toggleShowPassword}
+                />
               </div>
+
             </label>
           </div>
           {/*----------- BUTTON------------- */}
           <div className="footer">
+
             <a
-              onClick={handleSubmit}
               href="http://localhost:5173/home"
               className="Default_btn standar"
             >
@@ -119,6 +70,7 @@ export const Login = () => {
             <a href="http://localhost:5173/recuperarcuenta">
               <p>¿Olvidaste tu contraseña?</p>
             </a>
+
           </div>
         </div>
       </form>
