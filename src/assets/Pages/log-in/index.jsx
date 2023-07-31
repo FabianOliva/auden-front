@@ -31,6 +31,27 @@ export const Login = () => {
     fetchDataUser();
   }, []);
 
+  const login = async ()=>{
+    let headersList = {
+      "Accept": "*/*",
+      "Content-Type": "application/json"
+     }
+     
+     let bodyContent = JSON.stringify({
+         "user_username": formData.nombreoemail,
+         "user_userpassword": formData.password
+     }
+     );
+     
+     let response = await fetch("http://localhost:3002/users/login", { 
+       method: "POST",
+       body: bodyContent,
+       headers: headersList
+     });
+     
+     let data = await response.json();
+     console.log(data);
+  }
   //--------------------------VALIDAR-----------------------/
 
   const [formData, setFormData] = useState({
@@ -42,6 +63,7 @@ export const Login = () => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
     console.log(formData);
+    
   };
 
   const handleSubmit = (event) => {
@@ -49,6 +71,7 @@ export const Login = () => {
     // Aquí puedes realizar la solicitud al servidor para validar los datos
     // FormData contendrá el correo electrónico y la contraseña ingresados por el usuario
     console.log(formData);
+    login()
 
     // Realizar la solicitud HTTP al backend utilizando fetch
     // fetch("http://tu-servidor.com/api/login", {
