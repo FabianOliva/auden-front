@@ -1,0 +1,26 @@
+.ErrorPage_main {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(0deg, rgba(253, 254, 255, 0) 25%, rgba(234, 15, 15, 0.108) 100%);
+}
+
+.ErrorPage_main_title {
+  font-weight: 500;
+  color: #f21f39;
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+}
+
+.ErrorPage_main_subtitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.ErrorPage_main_gif {
+  width: 60%;
+}
