@@ -1,0 +1,23 @@
+.botonesDani-btn-organge {
+    background-color: #FF8E0A;
+    width: 320px;
+    height: 48px;
+    padding: 12px, 16px, 12px, 16px;
+    border-radius: 0px 16px 0px 16px;
+    gap: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Rubik;
+    margin-top: 15px;
+}
+
+.botonesDani-btn-organge a{
+color: aliceblue;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: 0.5px;
+text-align: center;
+
+}
