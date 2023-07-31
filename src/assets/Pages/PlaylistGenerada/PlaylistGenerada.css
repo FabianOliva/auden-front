@@ -152,6 +152,11 @@
   justify-content: center;
 }
 
+.playlist-time-ico img {
+  width: 16px;
+  height: 16px;
+}
+
 .playlist-songs-container {
   width: 320px;
   height: auto;
