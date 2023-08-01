@@ -21,16 +21,15 @@
   font-size: 12px;
   color: gray;
 }
-.Default_btn.standar {
-  margin-top: 180px;
-}
-.Default_btn.standar:hover {
-  background-color: orange;
+
+.Register_form {
+  width: 85%;
 }
 
 /* ----------------------------------Register - User -------------------------- */
 .Registeruser_Form {
   max-width: 1100px;
+  width: 85%;
 }
 
 .check {
