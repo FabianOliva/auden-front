@@ -29,22 +29,23 @@ const Search = () => {
       setLoading(false);
     }
   };
-  // const fetchDataArtistAndAlbum = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:3002/joins/albumandartist`
-  //     );
-  //     const data = await response.json();
-  //     setDataArtistAndAlbum(data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log("fallo", error);
-  //     setLoading(false);
-  //   }
-  // };
+  const fetchDataArtistAndAlbum = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3002/joins/albumandartist`
+      );
+      const data = await response.json();
+      setDataArtistAndAlbum(data);
+      setLoading(false);
+    } catch (error) {
+      console.log("fallo", error);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchData();
+    fetchDataArtistAndAlbum();
   }, []);
 
   const handleInputFocus = () => {
