@@ -19,6 +19,7 @@ import Amigos from "./assets/Pages/Amigos/Amigos.jsx";
 import { Playlist } from "./assets/Pages/playlist/index.jsx";
 import CrearPlaylist from "./assets/Pages/CrearPlaylist/CrearPlaylist.jsx";
 import GestionarPlaylist from "./assets/Pages/GestionarPlaylist/GestionarPlaylist.jsx";
+import AñadirCancionesAPlaylist from "./assets/Pages/AñadirCancionesAPlaylist/AñadirCancionesAPlaylist.jsx";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -41,6 +42,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/amigos" element={<Amigos />} />
         <Route path="/crear-playlist" element={<CrearPlaylist />} />
         <Route path="/gestionar-playlist" element={<GestionarPlaylist />} />
+        <Route path="/añadir-canciones" element={<AñadirCancionesAPlaylist />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
