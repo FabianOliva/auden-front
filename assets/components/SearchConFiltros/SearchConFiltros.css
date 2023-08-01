@@ -1,0 +1,135 @@
+.search-container {
+    width: 324px;
+    height: auto;
+}
+
+.search-container::placeholder {
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    color: #BFC0C1;
+}
+
+.search-container:active {
+    border: none;
+}
+
+.search-format {
+    width: 320px;
+    height: 48px;
+    border: 2px solid #BFC0C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px, 16px, 0px, 16px;
+    -webkit-border-top-right-radius: 16px;
+    -webkit-border-bottom-left-radius: 16px;
+    -moz-border-radius-topright: 16px;
+    -moz-border-radius-bottomleft: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+
+}
+
+.lupa-search-container {
+    width: 20%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lupa-search-container img {
+    width: 24px;
+    height: 24px;
+    filter: invert(88%) sepia(4%) saturate(77%) hue-rotate(169deg) brightness(87%) contrast(91%);
+}
+
+.search-style {
+    width: 60%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
+.search-style:focus {
+    border: none;
+    outline: none;
+    color: #BFC0C1;
+}
+
+.search-style::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #BFC0C1;
+}
+
+.micro-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.micro-container img {
+    width: 20px;
+    height: 20px;
+}
+
+.boton-search-container{
+    width: 100%;
+    height: 40%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-search-filter-tag{
+    width: auto;
+    height: 36px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    background-color: #FF8E0A;
+    color: white;
+    border: 2px solid #FF8E0A;
+    border-radius: 0px 12px 0px 12px;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.button-search-filter{
+    width: auto;
+    height: 36px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    background-color: aliceblue;
+    color: black;
+    border: 2px solid black;
+    border-radius: 0px 12px 0px 12px;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;    
+}
+
+.button-search-filter:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+
+.button-active-filter{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+
+}

@@ -1,0 +1,52 @@
+.controles-reproduccion-container {
+    width: 320px;
+    height: 48px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-ico-container {
+    width: 216px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.copy-ico-container span{
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #26262E;
+    font-weight: 500;
+}
+
+.music-controls{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.repeat-box{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-box{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

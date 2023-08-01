@@ -1,0 +1,211 @@
+.filtros-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.filtros-container h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #26262E;
+    padding-top: 20px;
+}
+
+.filters-box {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.tagstyle {
+    width: auto;
+    height: auto;
+    border-radius: 0px 12px 0px 12px;
+    border: 1.5px black solid;
+    padding: 3px;
+    margin: 5px;
+    color: #26262E;
+    background-color: #ffffff;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+}
+
+.button-container {
+    width: 320px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px, 16px, 0px, 16px;
+    Padding: 12px, 16px, 12px, 16px;
+    margin-top: 40px;
+}
+
+.btn-create-playlist {
+    width: 320px;
+    background-color: #E4E6E8;
+    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5;
+    color: #FDFEFF;
+    padding: 0px 16px 0px 16px;
+    border-radius: 0px 16px 0px 16px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tagstyle:hover {
+    background-color: black;
+    color: white;
+    border: 1.5px black solid;
+}
+
+.tagstyle-active {
+    background-color: black;
+    color: white;
+}
+
+.btn-create-playlist:hover {
+    background-color: orange;
+    color: white;
+    border: none;
+}
+
+.bloque-a-MC-container {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    color: #26262E;
+}
+
+.bloque-a-MC-container h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+
+.bloque-b-MC-container {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 5;
+    color: #26262E;
+}
+
+.bloque-b-MC-container h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.bloque-c-MC-container {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    color: #26262E;
+}
+
+.bloque-c-MC-container h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.fade-in-right {
+    -webkit-animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-left {
+    -webkit-animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in-left {
+    0% {
+        -webkit-transform: translateX(-50px);
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-left {
+    0% {
+        -webkit-transform: translateX(-50px);
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

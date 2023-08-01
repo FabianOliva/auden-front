@@ -1,0 +1,22 @@
+/* Cosodeprueba.css */
+.custom-select-container {
+    border: 2px solid rgb(0, 0, 0);
+    width: 320px;
+    border-top-right-radius: 16px;
+border-bottom-left-radius: 16px;
+background-color: rgb(255, 255, 255);
+}
+
+
+.custom-select-container:focus {
+outline: none !important;
+border: none !important;
+}
+
+.css-186kmp9-control:hover, .css-yugwkh-control:hover{
+    outline: none !important; 
+    border-color: transparent !important; 
+}
+
+/*borderBottom: '2px solid black',
+
