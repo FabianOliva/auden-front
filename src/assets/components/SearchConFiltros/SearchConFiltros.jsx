@@ -1,34 +1,3 @@
-// import React from 'react'
-// import '../SearchConFiltros/SearchConFiltros.css';
-
-// const SearchConFiltros = () => {
-//     return (
-//         <>
-//             <div className='search-container'>
-//                 <div className='search-format'>
-//                     <div className="lupa-search-container">
-//                         <img src="src/public/lupa.svg" alt="" />
-//                     </div>
-
-//                     <input id='busqueda' className='search-style' type="text" placeholder='Buscar' />
-//                     <div className="micro-container">
-//                         <img src="src/public/micro.svg" alt="" />
-//                     </div>
-//                 </div>
-
-//                 <div className="boton-search-container">
-//                     <button className='button-search-filter-tag'>Orden generado</button>
-//                     <button className='button-search-filter' id='titulo-filter'>Titulo</button>
-//                     <button className='button-search-filter' id='artista-filter'>Artista</button>
-//                     <button className='button-search-filter' id='album-filter'>Album</button>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default SearchConFiltros;
-
 import React, { useState } from 'react';
 import './SearchConFiltros.css';
 

@@ -6,37 +6,24 @@ import { useEffect, useState } from "react";
 import CardPortadaSimple from "../../components/CardPortadaSimple/CardPortadaSimple";
 import CardPortadaMultiple from "../../components/CardPortadaMultiple/CardPortadaMultiple";
 import Nav_Bar from "../../components/Nav_bar";
-import cookies from "js-cookie";
 
 export const UserProfile = () => {
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [DataUsers, setDataUsers] = useState([]);
   const [userPlaylistData, setUserPlaylistData] = useState([]);
-  const token = cookies.get("userToken");
 
   useEffect(() => {
+    // We define an async function to fetch the data, so we can use await inside it
     const fetchData = async () => {
-      const token = cookies.get("userToken");
-      if (!token) {
-        // Si no hay token almacenado en las cookies, el usuario no está autenticado.
-        // Puedes manejar esta situación según tus requerimientos, por ejemplo, redirigiendo al usuario a la página de inicio de sesión.
-        console.log("Usuario no autenticado. Redireccionar a la página de inicio de sesión.", token);
-      }else{
-        console.log("Usuario autenticado",token)
-      }
       try {
-        const response = await fetch(`http://localhost:3002/users/playlist/`, {
-          headers: {
-            "x-auth-token": token,
-          },
-        });
+        const response = await fetch(`http://localhost:3002/users/playlist/fabitti`);
         const data = await response.json();
         setDataUsers(data[0]);
         setUserPlaylistData(data);
-        setLoading(false);
+        setLoading(false); // Once data is fetched and processed, set loading to false
       } catch (error) {
         console.log("fallo", error);
-        setLoading(false);
+        setLoading(false); // Set loading to false even in case of an error
       }
     };
 
@@ -96,9 +83,12 @@ export const UserProfile = () => {
               <h5>Mis Playlist</h5>
             </span>
             <img src="src/public/divider.svg" alt="" />
-            <div id="btn-crear-playlist" className="btn-crear-playlist">
-              <a href="">Crear Playlist</a>
-            </div>
+            <Link to="/crear-playlist">
+              <div id="btn-crear-playlist" className="btn-crear-playlist">
+                <a href="">Crear Playlist</a>
+              </div>
+            </Link>
+
           </div>
 
           <div className="playlist-box-container">
