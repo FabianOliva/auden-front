@@ -8,8 +8,6 @@ export const Login = () => {
   // const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
 
-
-
   // const handlePasswordChange = (event) => {
   //   setPassword(event.target.value);
   // };
@@ -39,27 +37,27 @@ export const Login = () => {
 
   const login = async () => {
     let headersList = {
-      "Accept": "application/json",
-      "Content-Type": "application/json"
+      Accept: "application/json",
+      "Content-Type": "application/json",
     };
-  
+
     let bodyContent = JSON.stringify({
-      "user_username": formData.nombreoemail,
-      "user_userpassword": formData.password
+      user_username: formData.nombreoemail,
+      user_userpassword: formData.password,
     });
-  
+
     let response = await fetch("http://localhost:3002/users/login", {
       method: "POST",
       body: bodyContent,
-      headers: headersList
+      headers: headersList,
     });
-  
+
     if (response.ok) {
       let data = await response.json();
       const token = data.token; // Obtener el token de la respuesta
       cookies.set("userToken", token, { expires: 1 });
       console.log(data);
-  
+
       // Redirigir al usuario a la siguiente página después del inicio de sesión exitoso
       window.location.href = "http://localhost:5173/home";
     } else {
@@ -147,7 +145,7 @@ export const Login = () => {
   return (
     <div className="login_container">
       <nav className="navbar_container">
-        <a href="http://localhost:5173/">
+        <a href="/">
           {" "}
           <img src="src\public\left-icon-placeholder.png" alt="<-" />
         </a>
