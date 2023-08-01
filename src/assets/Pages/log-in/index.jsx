@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
+import cookies from "js-cookie"
 
 export const Login = () => {
   //Diseño
@@ -27,6 +28,7 @@ export const Login = () => {
       //setLoading(false);
     }
   };
+  
   useEffect(() => {
     fetchDataUser();
   }, []);
@@ -50,9 +52,10 @@ export const Login = () => {
      });
      
      let data = await response.json();
+     cookies.set("userToken", data.token, { expires: 1 })
      console.log(data);
   }
-  //--------------------------VALIDAR-----------------------/
+  //--------------------------VALIDAR-----------------------//
 
   const [formData, setFormData] = useState({
     nombreoemail: "",
@@ -68,26 +71,8 @@ export const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí puedes realizar la solicitud al servidor para validar los datos
-    // FormData contendrá el correo electrónico y la contraseña ingresados por el usuario
     console.log(formData);
     login()
-
-    // Realizar la solicitud HTTP al backend utilizando fetch
-    // fetch("http://tu-servidor.com/api/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data); // Manejar la respuesta del servidor aquí
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error al enviar formulario:", error);
-    //   });
   };
   return (
     <div className="login_container">
