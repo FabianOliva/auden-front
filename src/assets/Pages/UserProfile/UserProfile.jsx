@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import CardPortadaSimple from "../../components/CardPortadaSimple/CardPortadaSimple";
 import CardPortadaMultiple from "../../components/CardPortadaMultiple/CardPortadaMultiple";
 import Nav_Bar from "../../components/Nav_bar";
+import { LoadingScreen } from "../../components/LoadingWindow";
 
 export const UserProfile = () => {
   const [loading, setLoading] = useState(true); // Initialize loading state as true
@@ -19,15 +20,19 @@ export const UserProfile = () => {
         const data = await response.json();
         setDataUsers(data[0]);
         setUserPlaylistData(data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
       } catch (error) {
         console.log("fallo", error);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
       }
     };
 
     fetchData();
-  }, []);
+  }, [loading]);
 
   const groupSongsByPlaylist = () => {
     // Creamos un objeto para agrupar las canciones por playlist_id
@@ -57,7 +62,11 @@ export const UserProfile = () => {
 
   return (
     <>
-      {!loading && (
+      {loading ? (
+        <div>
+          <LoadingScreen />
+        </div>
+      ) : (
         <BackgroundC>
           <div className="picture-name-container fade-in-left">
             <div className="picture-container">

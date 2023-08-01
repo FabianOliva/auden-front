@@ -214,3 +214,8 @@
   gap: 8px;
   max-height: calc(100% - 48px);
 }
+
+.noResults {
+  text-align: center;
+  width: 100%;
+}

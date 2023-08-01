@@ -12,11 +12,13 @@ import verified from "../../../public/verified.svg";
 import share from "../../../public/share.svg";
 import time from "../../../public/time.svg";
 import { Link } from "react-router-dom";
+import { LoadingScreen } from "../../components/LoadingWindow";
 
 export const Playlist = () => {
   const [playlistSongs, setPlaylistSongs] = useState([]);
   const [playlistData, setPlaylistData] = useState({});
   const [totalTime, setTotalTime] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const { playlist_Id } = useParams();
 
@@ -37,54 +39,66 @@ export const Playlist = () => {
         const totalMinutes = Math.floor(totalDurationInSeconds / 60);
         const totalSeconds = totalDurationInSeconds % 60;
         setTotalTime(`${totalMinutes}m ${totalSeconds}s`);
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
       })
-      .catch((error) => console.error("Error en las solicitudes:", error));
+      .catch((error) => {
+        console.error("Error en las solicitudes:", error);
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
+      });
   }, [playlist_Id]);
 
   return (
     <>
       <BackgroundB>
-        <div className="playlist_main_cont">
-          <HeaderA tituloPrincipal={playlistData.playlist_name} redirectUrl={"/user-profile"} />
+        {loading ? (
+          <LoadingScreen />
+        ) : (
+          <div className="playlist_main_cont">
+            <HeaderA tituloPrincipal={playlistData.playlist_name} redirectUrl={"/user-profile"} />
 
-          <div className="dinamic-block-container"></div>
+            <div className="dinamic-block-container"></div>
 
-          <div className="cover-container">
-            {playlistSongs.slice(0, 4).map((song, index) => (
-              <div key={index} className={`cover-${index + 1}`}>
-                <img src={song.song_image_url} alt={`Portada ${index + 1}`} />
+            <div className="cover-container">
+              {playlistSongs.slice(0, 4).map((song, index) => (
+                <div key={index} className={`cover-${index + 1}`}>
+                  <img src={song.song_image_url} alt={`Portada ${index + 1}`} />
+                </div>
+              ))}
+            </div>
+
+            <div className="shared-time-container">
+              <div className="mini-icons-container">
+                <img src={logo_small} alt="" />
               </div>
-            ))}
+              <div className="mini-icons-container">
+                <img src={verified} alt="" />
+              </div>
+              <div className="mini-icons-container">
+                <img src={share} alt="" />
+              </div>
+
+              <div className="playlist-time">{totalTime}</div>
+
+              <div className="playlist-time-ico">
+                <img src={time} alt="" />
+              </div>
+            </div>
+            <ControlesDeReproduccion />
+
+            <div className="playlist-songs-container">
+              {playlistSongs.map((song, index) => (
+                <Link key={song.song_id} to={`/song/${song.song_id}`}>
+                  <SongRow name={song.song_name} artist={song.artist_name} url={song.song_image_url} />
+                </Link>
+              ))}
+            </div>
+            <Nav_Bar />
           </div>
-
-          <div className="shared-time-container">
-            <div className="mini-icons-container">
-              <img src={logo_small} alt="" />
-            </div>
-            <div className="mini-icons-container">
-              <img src={verified} alt="" />
-            </div>
-            <div className="mini-icons-container">
-              <img src={share} alt="" />
-            </div>
-
-            <div className="playlist-time">{totalTime}</div>
-
-            <div className="playlist-time-ico">
-              <img src={time} alt="" />
-            </div>
-          </div>
-          <ControlesDeReproduccion />
-
-          <div className="playlist-songs-container">
-            {playlistSongs.map((song, index) => (
-              <Link key={song.song_id} to={`/song/${song.song_id}`}>
-                <SongRow name={song.song_name} artist={song.artist_name} url={song.song_image_url} />
-              </Link>
-            ))}
-          </div>
-          <Nav_Bar />
-        </div>
+        )}
       </BackgroundB>
     </>
   );
