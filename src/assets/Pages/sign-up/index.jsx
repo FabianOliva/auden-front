@@ -1,8 +1,34 @@
 import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export const Register = () => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (event) => {
+    setEmail(event.target.value);
+    setError("");
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email.trim() === "") {
+      setError("El campo de correo electrónico no puede estar vacío.");
+    } else if (!emailRegex.test(email)) {
+      setError("El correo electrónico ingresado no es válido.");
+    } else {
+      setError("");
+      // Aquí puedes continuar con el proceso de registro si el correo electrónico es válido.
+      // Por ejemplo, hacer una llamada a una API para crear la cuenta.
+      // Luego, redirigir al usuario a otra página usando window.location.href o React Router.
+      window.location.href = "http://localhost:5173/registeruser";
+    }
+  };
+
   return (
     <div className="login_container">
       <nav className="navbar_container">
@@ -12,19 +38,29 @@ export const Register = () => {
         <p>Crear Cuenta</p>
         <div className="relleno"></div>
       </nav>
-      <form action="">
-        <p className="p_title">¿Cuál es tu correo electrónico ?</p>
+      <form className="Register_form">
+        <p className="p_title">¿Cuál es tu correo electrónico?</p>
         <div className="form_container_login">
           <div className="labels_input register">
-            <label htmlFor="">
+            <label htmlFor="email">
               <p>Correo electrónico:</p>
-              <input type="text" />
+              <input
+                type="text"
+                id="email"
+                value={email}
+                onChange={handleChange}
+                placeholder={error ? "El campo no debe estar vacío" : ""}
+                className={error ? "InputError" : ""}
+              />
               <div className="footer register">
-                <p>Deberas poder confirmarlo luego</p>
+                <p>Deberás poder confirmarlo luego</p>
               </div>
             </label>
           </div>
-          <a className="Default_btn active register" href="http://localhost:5173/registeruser">
+          <a
+            href={email.trim() !== "" && !error ? "http://localhost:5173/registeruser" : "#"}
+            className={`Default_btn actived register ${error ? "disabled" : ""}`}
+            onClick={handleSubmit}>
             Continuar
           </a>
         </div>

@@ -1,0 +1,138 @@
+.login_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.p_title {
+  text-align: center;
+  margin-top: 0%;
+  font-size: 27px;
+  font-weight: 500;
+}
+.footer.register {
+  margin-top: 10px;
+  align-items: start;
+}
+.footer.register p {
+  margin-top: 0px;
+  font-weight: 500;
+  font-size: 12px;
+  color: gray;
+}
+.Default_btn.standar {
+  margin-top: 180px;
+}
+.Default_btn.standar:hover {
+  background-color: orange;
+}
+
+/* ----------------------------------Register - User -------------------------- */
+.Registeruser_Form {
+  max-width: 1100px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+}
+.check input {
+  appearance: none;
+  width: 27px;
+  margin-right: 10px;
+  border-color: rgba(128, 128, 128, 0.566) !important;
+  border-width: 3px;
+  border-style: solid;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.terms {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: gray !important;
+}
+.terms a {
+  color: orange;
+  text-decoration: none;
+  font-weight: 500 !important;
+}
+
+/* ---------VALIDATION-------- */
+.password_span {
+  color: rgba(128, 128, 128, 0.664);
+  font-weight: 600;
+  font-size: small;
+  margin-top: 5px;
+}
+.name_span {
+  color: rgba(128, 128, 128, 0.664);
+  font-weight: 600;
+  font-size: small;
+  margin-top: 5px;
+}
+/* --ERRORS-- */
+.name_span.ok {
+  color: rgb(30, 228, 0);
+  font-weight: 600;
+  font-size: small;
+  margin-top: 5px;
+}
+.name_span.error {
+  color: red;
+}
+
+/* --PASSWORD-- */
+
+/* ERROR */
+.password_span.error {
+  color: red;
+  font-weight: 600;
+  font-size: small;
+  margin-top: 5px;
+}
+.labels_input.password.error input {
+  border-color: red;
+}
+.labels_input.password.error p {
+  color: red;
+}
+/* OK */
+.labels_input.password.ok input {
+  border-color: rgb(30, 228, 0);
+}
+.labels_input.password.ok span {
+  color: rgb(30, 228, 0);
+  font-weight: 600;
+  font-size: small;
+  margin-top: 5px;
+}
+
+/* --NAME-- */
+
+/* OK */
+.labels_input.name.ok input {
+  border-color: rgb(30, 228, 0);
+}
+
+/* ERROR */
+.labels_input.name.error input {
+  border-color: red;
+}
+
+.labels_input.name.error span {
+  color: red;
+}
+
+.name {
+  width: auto;
+}
+
+.password {
+  width: auto;
+}
+
+.checkbox {
+  height: 22px !important;
+  width: 22px !important;
+}

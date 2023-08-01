@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import cookies from "js-cookie"
+import cookies from "js-cookie";
 
 export const Login = () => {
   //Diseño
@@ -32,7 +32,7 @@ export const Login = () => {
       //setLoading(false);
     }
   };
-  
+
   useEffect(() => {
     fetchDataUser();
   }, []);
@@ -80,15 +80,70 @@ export const Login = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
-    
+
+    // Reiniciar el campo en emptyFields cuando cambie el contenido del campo
+    setEmptyFields((prevEmptyFields) => ({
+      ...prevEmptyFields,
+      [name]: false,
+    }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-    login()
+  //        Validacion de inputs en Front
+
+  const [hasErrors, setHasErrors] = useState(false);
+
+  const [formErrors, setFormErrors] = useState({
+    nombreoemail: "",
+    password: "",
+  });
+
+  const [emptyFields, setEmptyFields] = useState({
+    nombreoemail: false,
+    password: false,
+  });
+
+  const validateForm = () => {
+    let isValid = true;
+    const errors = {};
+    const emptyFieldsTemp = { ...emptyFields };
+
+    // Validation for nombreoemail field
+    if (!formData.nombreoemail) {
+      errors.nombreoemail = "El nombre de usuario o e-mail es requerido.";
+      emptyFieldsTemp.nombreoemail = true;
+      isValid = false;
+    } else {
+      emptyFieldsTemp.nombreoemail = false;
+    }
+
+    // Validation for password field
+    if (!formData.password) {
+      errors.password = "La contraseña es requerida.";
+      emptyFieldsTemp.password = true;
+      isValid = false;
+    } else {
+      emptyFieldsTemp.password = false;
+    }
+
+    setFormErrors(errors);
+    setEmptyFields(emptyFieldsTemp);
+    setHasErrors(!isValid);
+    return isValid;
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      try {
+        await login();
+      } catch (error) {
+        // Handle any errors that might occur during login
+        console.error("An error occurred during login:", error);
+        // Add code here to display an error message to the user
+      }
+    }
+  };
+
   return (
     <div className="login_container">
       <nav className="navbar_container">
@@ -112,6 +167,8 @@ export const Login = () => {
                 name="nombreoemail"
                 value={formData.nombreoemail}
                 onChange={handleChange}
+                className={emptyFields.nombreoemail ? "InputError " : ""}
+                placeholder={emptyFields.nombreoemail ? "Este campo es requerido." : ""}
               />
             </label>
           </div>
@@ -125,6 +182,8 @@ export const Login = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
+                  className={emptyFields.password ? "InputError" : ""}
+                  placeholder={emptyFields.password ? "Este campo es requerido." : ""}
                 />
               </div>
             </label>
@@ -134,9 +193,10 @@ export const Login = () => {
           <div className="footer">
             <a
               onClick={handleSubmit}
-              href="http://localhost:5173/home"
-              className="Default_btn standar"
-            >
+              className={`Default_btn ${
+                hasErrors || !formData.nombreoemail || !formData.password ? "standar" : "actived"
+              }`}
+              disabled={hasErrors || !formData.nombreoemail || !formData.password}>
               Iniciar Sesión
             </a>
             <a href="http://localhost:5173/recuperarcuenta">
