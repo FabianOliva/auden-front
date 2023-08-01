@@ -1,0 +1,44 @@
+.footerControls-container {
+  width: 368px;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+}
+
+.footerControls-ico-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.ico {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ico img {
+  width: 24px;
+  height: 24px;
+  filter: invert(43%) sepia(22%) saturate(0%) hue-rotate(199deg) brightness(91%)
+    contrast(82%);
+}
+
+.ico-text-container span {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #26262e;
+}
+
+.icono-activo {
+  filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(210deg)
+    brightness(0%) contrast(115%);
+  filter: invert(0%) sepia(30%) saturate(7500%) hue-rotate(210deg)
+    brightness(0%) contrast(115%);
+}

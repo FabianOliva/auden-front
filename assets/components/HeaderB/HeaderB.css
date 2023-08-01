@@ -1,0 +1,55 @@
+.cabezal-container {
+  width: 320px;
+  height: 80px;
+  display: flex;
+  margin-top: 24px;
+}
+
+.back-container {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-container img {
+  width: 24px;
+  height: 24px;
+  color: #26262e;
+}
+
+.titulo-container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.titulo-container h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #26262e;
+  margin: 0;
+}
+
+.titulo-container h5 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #26262e;
+  margin: 0;
+}
+
+.options-container {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

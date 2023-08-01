@@ -1,0 +1,33 @@
+.app-backgroundC {
+  height: 90vh;
+  background: rgb(219, 230, 237);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(219, 230, 237, 1) 0%,
+    rgba(253, 254, 255, 1) 20%,
+    rgba(253, 254, 255, 1) 85%,
+    rgba(235, 241, 245, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(219, 230, 237, 1) 0%,
+    rgba(253, 254, 255, 1) 20%,
+    rgba(253, 254, 255, 1) 85%,
+    rgba(235, 241, 245, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(219, 230, 237, 1) 0%,
+    rgba(253, 254, 255, 1) 20%,
+    rgba(253, 254, 255, 1) 85%,
+    rgba(235, 241, 245, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dbe6ed", endColorstr="#ebf1f5", GradientType=1);
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+  overflow: hidden;
+}

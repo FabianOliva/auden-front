@@ -1,0 +1,190 @@
+.picture-name-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+.picture-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.name-container h2 {
+  margin: 0;
+  font-family: Rubik;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: black;
+}
+
+.name-container h5 {
+  margin: 0;
+  font-family: Rubik;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: black;
+}
+
+.profile-photo {
+  width: 152px;
+  height: 152px;
+  border-radius: 92px;
+  background-color: rgba(255, 142, 10, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.gear-style {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 200px;
+  left: 110px;
+}
+
+/*aca empiezan los estilos*/
+.playlist-user-controls {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  bottom: 30px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.btn-crear-playlist {
+  width: 100px;
+  height: 26px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 0px 8px 0px 8px;
+  gap: 4px;
+  background-color: rgba(255, 142, 10, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-crear-playlist a {
+  color: aliceblue;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.playlist-box-container {
+  width: 340px;
+  height: 545px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  overflow-y: scroll;
+}
+
+.fade-in-right {
+  -webkit-animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-in-left {
+  -webkit-animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

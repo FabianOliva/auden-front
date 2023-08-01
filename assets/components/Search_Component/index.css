@@ -1,0 +1,58 @@
+.Last_Search_Comp {
+  width: 85%;
+  gap: 12px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Last_Search_img,
+.Last_Search_img img {
+  width: 48px;
+  height: 48px;
+}
+
+.Last_Search_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+
+.Last_Search_text p {
+  padding: 0;
+  margin: 0;
+  color: #26262e;
+}
+
+.Last_Search_title {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+}
+
+.Last_Search_subtitle {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+  letter-spacing: 0.5px;
+  opacity: 50%;
+}
+
+.Last_Search_delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Last_Search_Cont {
+  width: 85%;
+  gap: 12px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+}
