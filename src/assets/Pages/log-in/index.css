@@ -88,3 +88,14 @@
   display: flex;
   align-items: center;
 }
+
+.input_img.error input{
+  border-color: red;
+}
+.labels_input.error input{
+  border-color: red;
+}
+.errorlogin{
+  color: red;
+  margin-top: 5px;
+}

@@ -4,14 +4,18 @@ import cookies from "js-cookie"
 
 export const Login = () => {
   //Diseño
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const toggleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+  // const [password, setPassword] = useState("");
+  // const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(null);
+
+
+
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value);
+  // };
+  // const toggleShowPassword = () => {
+  //   setShowPassword(!showPassword);
+  // };
   //---------------USER-VALIDATOR---------------/
 
   const [fetchDatUser, setFetchDataUser] = useState([]);
@@ -33,28 +37,39 @@ export const Login = () => {
     fetchDataUser();
   }, []);
 
-  const login = async ()=>{
+  const login = async () => {
     let headersList = {
-      "Accept": "*/*",
+      "Accept": "application/json",
       "Content-Type": "application/json"
-     }
-     
-     let bodyContent = JSON.stringify({
-         "user_username": formData.nombreoemail,
-         "user_userpassword": formData.password
-     }
-     );
-     
-     let response = await fetch("http://localhost:3002/users/login", { 
-       method: "POST",
-       body: bodyContent,
-       headers: headersList
-     });
-     
-     let data = await response.json();
-     cookies.set("userToken", data.token, { expires: 1 })
-     console.log(data);
-  }
+    };
+  
+    let bodyContent = JSON.stringify({
+      "user_username": formData.nombreoemail,
+      "user_userpassword": formData.password
+    });
+  
+    let response = await fetch("http://localhost:3002/users/login", {
+      method: "POST",
+      body: bodyContent,
+      headers: headersList
+    });
+  
+    if (response.ok) {
+      let data = await response.json();
+      const token = data.token; // Obtener el token de la respuesta
+      cookies.set("userToken", token, { expires: 1 });
+      console.log(data);
+  
+      // Redirigir al usuario a la siguiente página después del inicio de sesión exitoso
+      window.location.href = "http://localhost:5173/home";
+    } else {
+      // Si el inicio de sesión falla, puedes mostrar un mensaje de error
+      console.log("Inicio de sesión fallido");
+      let errorResponse = await response.json();
+      const errorMessage = errorResponse.mensaje;
+      setError(errorMessage);
+    }
+  };
   //--------------------------VALIDAR-----------------------//
 
   const [formData, setFormData] = useState({
@@ -89,7 +104,7 @@ export const Login = () => {
       <form action="">
         <div className="form_container_login">
           {/* --------------INPUT NAME--------------- */}
-          <div className="labels_input">
+          <div className={`labels_input ${error ? "error" : ""}`}>
             <label htmlFor="">
               <p>Nombre de Usuario o E-mail:</p>
               <input
@@ -101,19 +116,19 @@ export const Login = () => {
             </label>
           </div>
           {/* -------------INPUT PASSWORD------------- */}
-          <div className="labels_input passwordd ">
+          <div className="labels_input passwordd">
             <label htmlFor="">
               <p>Contraseña:</p>
-              <div className="input_img">
+              <div className={`input_img ${error ? "error" : ""}`}>
                 <input
                   type="password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                 />
-                {/* ... Resto del código ... */}
               </div>
             </label>
+            {error && <div className="errorlogin">Credenciales Inválidas</div>}
           </div>
           {/*----------- BUTTON------------- */}
           <div className="footer">
