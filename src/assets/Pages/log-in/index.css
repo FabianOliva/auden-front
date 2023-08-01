@@ -88,3 +88,11 @@
   display: flex;
   align-items: center;
 }
+
+.InputError {
+  border-color: red !important;
+}
+
+.InputError::placeholder {
+  color: red;
+}

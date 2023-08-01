@@ -6,22 +6,21 @@ import { useEffect, useState } from "react";
 import CardPortadaSimple from "../../components/CardPortadaSimple/CardPortadaSimple";
 import CardPortadaMultiple from "../../components/CardPortadaMultiple/CardPortadaMultiple";
 import Nav_Bar from "../../components/Nav_bar";
-import cookies from "js-cookie"
+import cookies from "js-cookie";
 
 export const UserProfile = () => {
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [DataUsers, setDataUsers] = useState([]);
   const [userPlaylistData, setUserPlaylistData] = useState([]);
-  const token = cookies.get("userToken")
-
+  const token = cookies.get("userToken");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`http://localhost:3002/users/playlist/`, {
-          headers:{
-            "x-auth-token": token
-          }
+          headers: {
+            "x-auth-token": token,
+          },
         });
         const data = await response.json();
         setDataUsers(data[0]);
@@ -74,8 +73,8 @@ export const UserProfile = () => {
             </div>
 
             <div className="name-container">
-              {/* <h2>{DataUsers.user_name}</h2>
-              <h5>@{DataUsers.user_username}</h5> */}
+              <h2>{DataUsers.user_name}</h2>
+              <h5>@{DataUsers.user_username}</h5>
               <Link to="/configuracion" className="gear-style">
                 <span>
                   <img src="src/public/gear.svg" alt="" />
