@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +12,9 @@ export const Register = () => {
     setEmail(event.target.value);
     setError("");
   };
+
+  // Obtener el objeto de navegación
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,10 +26,7 @@ export const Register = () => {
       setError("El correo electrónico ingresado no es válido.");
     } else {
       setError("");
-      // Aquí puedes continuar con el proceso de registro si el correo electrónico es válido.
-      // Por ejemplo, hacer una llamada a una API para crear la cuenta.
-      // Luego, redirigir al usuario a otra página usando window.location.href o React Router.
-      window.location.href = "http://localhost:5173/registeruser";
+      window.location.href = `/Registeruser?email=${encodeURIComponent(email)}`;
     }
   };
 
@@ -57,12 +58,15 @@ export const Register = () => {
               </div>
             </label>
           </div>
-          <a
-            href={email.trim() !== "" && !error ? "http://localhost:5173/registeruser" : "#"}
+          <Link
+            to={{
+              pathname: "/Registeruser",
+              state: { email },
+            }}
             className={`Default_btn actived register ${error ? "disabled" : ""}`}
             onClick={handleSubmit}>
             Continuar
-          </a>
+          </Link>
         </div>
       </form>
     </div>
