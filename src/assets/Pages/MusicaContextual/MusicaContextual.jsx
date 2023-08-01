@@ -17,25 +17,15 @@ const customOptions = [
 ];
 
 const customOptions2 = [
-  { label: "Feliz", value: "feliz" },
-  { label: "Triste", value: "triste" },
-  { label: "Alegre", value: "alegre" },
-  { label: "Enamorado", value: "enamorado" },
-  { label: "Concentrado", value: "concentrado" },
-  { label: "Serio", value: "serio" },
-  { label: "Furioso", value: "furioso" },
-  { label: "Preocupado", value: "preocupado" },
+  { label: "Prueba 1", value: "ejercicio-fisico" },
+  { label: "Prueba 2", value: "limpieza" },
+  { label: "Prueba 3", value: "celebracion" },
 ];
 
 const customOptions3 = [
-  { label: "Soleado", value: "ejercicio-fisico" },
-  { label: "Nuboso", value: "limpieza" },
-  { label: "Lluvia", value: "lluvia" },
-  { label: "Nevado", value: "nevado" },
-  { label: "Neblina", value: "neblina" },
-  { label: "Humedo", value: "humedo" },
-  { label: "Templado", value: "templado" },
-  { label: "Frio", value: "frop" },
+  { label: "Elemento A", value: "ejercicio-fisico" },
+  { label: "Elemento B", value: "limpieza" },
+  { label: "Elemento C", value: "celebracion" },
 ];
 
 export const MusicaContextual = () => {
@@ -43,21 +33,22 @@ export const MusicaContextual = () => {
 
   const handleGenreClick = (genre) => {
     if (activeGenres.includes(genre)) {
-      // Si el género ya está en la lista, lo quitamos (desactivamos)
-      setActiveGenres((prevGenres) => prevGenres.filter((activeGenre) => activeGenre !== genre));
+      setActiveGenres(
+        activeGenres.filter((activeGenre) => activeGenre !== genre)
+      );
     } else {
-      // Si el género no está en la lista y hay menos de 3 géneros activos, lo agregamos (activamos)
       if (activeGenres.length < 3) {
-        setActiveGenres((prevGenres) => [...prevGenres, genre]);
+        setActiveGenres([...activeGenres, genre]);
       }
     }
   };
-  
+
   const isGenreActive = (genre) => activeGenres.includes(genre);
 
   const handleCreatePlaylistClick = () => {
     console.log("Los géneros seleccionados son:", activeGenres.join(", "));
-
+    // Aquí puedes poner la lógica para cambiar a la siguiente pantalla o hacer lo que necesites.
+    // Por ahora, solo imprimiremos un mensaje en la consola.
     console.log("Creando playlist...");
   };
 
@@ -66,17 +57,17 @@ export const MusicaContextual = () => {
       <BackgroundA>
         <HeaderA tituloPrincipal="Música Contextual" redirectUrl="/home" />
 
-        <div className="bloque-a-MC-container fade-in-right">
+        <div className="bloque-a-MC-container">
           <h4>¿Cuál es tu ocasión?</h4>
           <InputStyled options={customOptions} />{" "}
           {/* Pasa customOptions como prop */}
         </div>
-        <div className="bloque-b-MC-container fade-in-left">
+        <div className="bloque-b-MC-container">
           <h4>¿Cómo te sientes?</h4>
           <InputStyled options={customOptions2} />{" "}
           {/* Pasa customOptions como prop */}
         </div>
-        <div className="bloque-c-MC-container fade-in-right">
+        <div className="bloque-c-MC-container">
           <h4>¿Cómo esta el clima?</h4>
           <InputStyled options={customOptions3} />{" "}
           {/* Pasa customOptions como prop */}
@@ -87,146 +78,164 @@ export const MusicaContextual = () => {
             <h4>Selecciona hasta 3 géneros</h4>
           </div>
 
-          <div className="filters-box fade-in-left">
+          <div className="filters-box">
             <button
-              className={`tagstyle ${isGenreActive("rock") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("rock") ? "tagstyle-active" : ""
+              }`}
               id="rock"
               onClick={() => handleGenreClick("rock")}
             >
               Rock
             </button>
             <button
-              className={`tagstyle ${isGenreActive("country") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("country") ? "tagstyle-active" : ""
+              }`}
               id="country"
               onClick={() => handleGenreClick("country")}
             >
               Country
             </button>
             <button
-              className={`tagstyle ${isGenreActive("soul") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("soul") ? "tagstyle-active" : ""
+              }`}
               id="soul"
               onClick={() => handleGenreClick("soul")}
             >
               Soul
             </button>
             <button
-              className={`tagstyle ${isGenreActive("jazz") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("jazz") ? "tagstyle-active" : ""
+              }`}
               id="jazz"
               onClick={() => handleGenreClick("jazz")}
             >
               Jazz
             </button>
             <button
-              className={`tagstyle ${isGenreActive("blues") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("blues") ? "tagstyle-active" : ""
+              }`}
               id="blues"
               onClick={() => handleGenreClick("blues")}
             >
               Blues
             </button>
             <button
-              className={`tagstyle ${isGenreActive("hiphop") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("hiphop") ? "tagstyle-active" : ""
+              }`}
               id="hiphop"
               onClick={() => handleGenreClick("hiphop")}
             >
               Hip-Hop
             </button>
             <button
-              className={`tagstyle ${isGenreActive("pop") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("pop") ? "tagstyle-active" : ""
+              }`}
               id="pop"
               onClick={() => handleGenreClick("pop")}
             >
               Pop
             </button>
             <button
-              className={`tagstyle ${isGenreActive("reggae") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("reggae") ? "tagstyle-active" : ""
+              }`}
               id="reggae"
               onClick={() => handleGenreClick("reggae")}
             >
               Reggae
             </button>
             <button
-              className={`tagstyle ${isGenreActive("folk") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("folk") ? "tagstyle-active" : ""
+              }`}
               id="folk"
               onClick={() => handleGenreClick("folk")}
             >
               Folk
             </button>
             <button
-              className={`tagstyle ${isGenreActive("r&b") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("r&b") ? "tagstyle-active" : ""
+              }`}
               id="r&b"
               onClick={() => handleGenreClick("r&b")}
             >
               R&B
             </button>
             <button
-              className={`tagstyle ${isGenreActive("clasico") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("clasico") ? "tagstyle-active" : ""
+              }`}
               id="clasico"
               onClick={() => handleGenreClick("clasico")}
             >
               Clásico
             </button>
             <button
-              className={`tagstyle ${isGenreActive("alternativo") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("alternativo") ? "tagstyle-active" : ""
+              }`}
               id="alternativo"
               onClick={() => handleGenreClick("alternativo")}
             >
               Alternativo
             </button>
             <button
-              className={`tagstyle ${isGenreActive("ambiente") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("ambiente") ? "tagstyle-active" : ""
+              }`}
               id="ambiente"
               onClick={() => handleGenreClick("ambiente")}
             >
               Ambiente
             </button>
             <button
-              className={`tagstyle ${isGenreActive("edm") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("edm") ? "tagstyle-active" : ""
+              }`}
               id="edm"
               onClick={() => handleGenreClick("edm")}
             >
               EDM
             </button>
             <button
-              className={`tagstyle ${isGenreActive("electronica") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("electronica") ? "tagstyle-active" : ""
+              }`}
               id="electronica"
               onClick={() => handleGenreClick("electronica")}
             >
               Electrónica
             </button>
             <button
-              className={`tagstyle ${isGenreActive("disco") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("disco") ? "tagstyle-active" : ""
+              }`}
               id="disco"
               onClick={() => handleGenreClick("disco")}
             >
               Disco
             </button>
             <button
-              className={`tagstyle ${isGenreActive("newage") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("newage") ? "tagstyle-active" : ""
+              }`}
               id="newage"
               onClick={() => handleGenreClick("newage")}
             >
               New Age
             </button>
             <button
-              className={`tagstyle ${isGenreActive("punk") ? "tagstyle-active" : ""
-                }`}
+              className={`tagstyle ${
+                isGenreActive("punk") ? "tagstyle-active" : ""
+              }`}
               id="punk"
               onClick={() => handleGenreClick("punk")}
             >
@@ -234,10 +243,11 @@ export const MusicaContextual = () => {
             </button>
           </div>
 
-          <div className="button-container fade-in-right">
+          <div className="button-container">
             <button
-              className={`btn-create-playlist ${activeGenres.length > 0 ? "active" : ""
-                }`}
+              className={`btn-create-playlist ${
+                activeGenres.length > 0 ? "active" : ""
+              }`}
               onClick={handleCreatePlaylistClick}
             >
               Crear Playlist
