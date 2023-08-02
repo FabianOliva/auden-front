@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import App from "./App.jsx";
 import Search from "./assets/Pages/search/index.jsx";
 import { Login } from "./assets/Pages/log-in/index.jsx";
@@ -18,6 +17,9 @@ import Configuracion from "./assets/Pages/Configuracion/Configuracion";
 import Amigos from "./assets/Pages/Amigos/Amigos.jsx";
 import { Playlist } from "./assets/Pages/playlist/index.jsx";
 import ErrorPage from "./assets/Pages/error/index.jsx";
+import CrearPlaylist from "./assets/Pages/CrearPlaylist/CrearPlaylist.jsx";
+import GestionarPlaylist from "./assets/Pages/GestionarPlaylist/GestionarPlaylist.jsx";
+import AñadirCancionesAPlaylist from "./assets/Pages/AñadirCancionesAPlaylist/AñadirCancionesAPlaylist.jsx";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -39,6 +41,9 @@ createRoot(document.getElementById("root")).render(
         <Route path="/configuracion" element={<Configuracion />} />
         <Route path="/amigos" element={<Amigos />} />
         <Route path="/error" element={<ErrorPage />} />
+        <Route path="/crear-playlist" element={<CrearPlaylist />} />
+        <Route path="/gestionar-playlist" element={<GestionarPlaylist />} />
+        <Route path="/añadir-canciones" element={<AñadirCancionesAPlaylist />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

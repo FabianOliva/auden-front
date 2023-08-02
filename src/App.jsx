@@ -31,12 +31,6 @@ function App() {
             <Link to="/login">
               <a className="start-login-text">Iniciar Sesion</a>
             </Link>
-            <video loop>
-              <source
-                src="https://www.pexels.com/es-es/video/cama-bailando-musica-ventanas-6875756/"
-                type="video/mp4"
-              />
-            </video>
           </div>
         </section>
       </div>

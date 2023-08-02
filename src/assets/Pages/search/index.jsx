@@ -3,10 +3,7 @@ import Song_box from "../../components/Song_box";
 import "./index.css";
 import "./animations.css";
 import Filter from "../../components/filters";
-import {
-  Last_Search_Comp,
-  Search_Comp,
-} from "../../components/Search_Component";
+import { Search_Comp } from "../../components/Search_Component";
 import { useEffect, useState } from "react";
 
 const Search = () => {
@@ -104,10 +101,7 @@ const Search = () => {
         );
 
         changeContentWithDelay(
-          <div
-            className="search_active last_search slide-right"
-            id="elementToAnimate4"
-          >
+          <div className="search_active last_search slide-right" id="elementToAnimate4">
             <div className="search_last_search_title2">
               <p>Resultado Sugerido</p>
             </div>
@@ -126,10 +120,7 @@ const Search = () => {
         break;
       case EmptyInput && isInputFocused:
         changeContentWithDelay(
-          <div
-            className="search_active last_search slide-right"
-            id="elementToAnimate4"
-          >
+          <div className="search_active last_search slide-right" id="elementToAnimate4">
             <div className="search_last_search_title2">
               <p>Resultado Sugerido</p>
             </div>
@@ -205,10 +196,7 @@ const Search = () => {
   return (
     <div className="search_cont">
       <div className="search_header">
-        <h1
-          className={`search_header_title `}
-          style={{ display: !isInputFocused ? "flex" : "none" }}
-        >
+        <h1 className={`search_header_title `} style={{ display: !isInputFocused ? "flex" : "none" }}>
           Buscador
         </h1>
         <form action="" className="search_header_form">
@@ -220,9 +208,7 @@ const Search = () => {
             onChange={handleInputChange}
             value={inputValue}
             style={{
-              border: isInputFocused
-                ? "2px solid #FF8E0A"
-                : "2px solid #BFC0C1",
+              border: isInputFocused ? "2px solid #FF8E0A" : "2px solid #BFC0C1",
             }}
           />
           {!isInputFocused ? (
@@ -232,10 +218,7 @@ const Search = () => {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              className={`search_header_input_icon ${
-                isInputFocused ? "slide-top" : "slide-bottom"
-              }`}
-            >
+              className={`search_header_input_icon ${isInputFocused ? "slide-top" : "slide-bottom"}`}>
               <path
                 d="M21.7417 21.7417L17.0806 17.0723M17.0806 17.0723C18.7343 15.4164 19.6637 13.1722 19.6637 10.8318M17.0806 17.0723L17.0787 17.0746M19.6637 10.8318C19.6637 8.48948 18.7332 6.24307 17.0769 4.58678C15.4206 2.93049 13.1742 2 10.8318 2C8.48948 2 6.24307 2.93049 4.58678 4.58678C2.93049 6.24307 2 8.48948 2 10.8318C2 13.1742 2.93049 15.4206 4.58678 17.0769C6.24307 18.7332 8.48948 19.6637 10.8318 19.6637C13.1742 19.6637 15.4206 18.7332 17.0769 17.0769L17.0787 17.0746M19.6637 10.8318C19.6637 13.1732 18.7337 15.4185 17.0787 17.0746"
                 stroke="#BFC0C1"
@@ -248,19 +231,13 @@ const Search = () => {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={`search_header_input_icon ${
-                isInputFocused ? "slide-top" : "slide-bottom"
-              }`}
-              onClick={handleBackArrowClick}
-            >
+              className={`search_header_input_icon ${isInputFocused ? "slide-top" : "slide-bottom"}`}
+              onClick={handleBackArrowClick}>
               <path d="M4 12L20 12M11 5L4 12L11 19" stroke="#26262E" />
             </svg>
           )}
         </form>
-        <div
-          className="search_header_filters"
-          style={{ display: !EmptyInput ? "flex" : "none" }}
-        >
+        <div className="search_header_filters" style={{ display: !EmptyInput ? "flex" : "none" }}>
           <Filter text="Top" class="fActive"></Filter>
           <Filter text="Canciones" class="fUnactive"></Filter>
           <Filter text="Albumes" class="fUnactive"></Filter>

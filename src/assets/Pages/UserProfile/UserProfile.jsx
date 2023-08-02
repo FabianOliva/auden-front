@@ -14,6 +14,8 @@ export const UserProfile = () => {
   const [userPlaylistData, setUserPlaylistData] = useState([]);
   const token = cookies.get("userToken");
 
+  localStorage.setItem("DataUsers", JSON.stringify(DataUsers));
+
   useEffect(() => {
     const fetchData = async () => {
       const token = cookies.get("userToken");
@@ -21,8 +23,8 @@ export const UserProfile = () => {
         // Si no hay token almacenado en las cookies, el usuario no está autenticado.
         // Puedes manejar esta situación según tus requerimientos, por ejemplo, redirigiendo al usuario a la página de inicio de sesión.
         console.log("Usuario no autenticado. Redireccionar a la página de inicio de sesión.", token);
-      }else{
-        console.log("Usuario autenticado",token)
+      } else {
+        // console.log("Usuario autenticado", token);
       }
       try {
         const response = await fetch(`http://localhost:3002/users/playlist/`, {
@@ -97,7 +99,7 @@ export const UserProfile = () => {
             </span>
             <img src="src/public/divider.svg" alt="" />
             <div id="btn-crear-playlist" className="btn-crear-playlist">
-              <a href="">Crear Playlist</a>
+              <a href="/crear-playlist">Crear Playlist</a>
             </div>
           </div>
 
