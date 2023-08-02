@@ -1,0 +1,206 @@
+.añadirCanciones-buscador-container {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ab-buscador-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 48px;
+    border-radius: 0px 16px 0px 16px;
+    border: 2px solid rgba(191, 192, 193, 1);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.lupa {
+    width: 24px;
+    height: 24px;
+    filter: invert(83%) sepia(3%) saturate(88%) hue-rotate(169deg) brightness(95%) contrast(88%);
+}
+
+.ab-buscador-container input {
+    width: 200px;
+    border: none;
+    font-family: Rubik;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    background-color: transparent;
+
+}
+
+.ab-buscador-container input:focus {
+    border: none;
+    outline: none;
+}
+
+.ab-tags-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tags-desplegables-box {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    gap: 5px;
+    padding-left: 20px;
+}
+
+.tag-orange-ab {
+    width: 94px;
+    height: 25px;
+    padding: 6px 8px 6px 8px;
+    border-radius: 0px 12px 0px 12px;
+    border: 1.5px;
+    gap: 4px;
+    background-color: #FF8E0A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-family: Rubik;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tag-orange-ab2 {
+    width: 94px;
+    height: 25px;
+    padding: 6px 8px 6px 8px;
+    border-radius: 0px 12px 0px 12px;
+    border: 1.5px;
+    gap: 4px;
+    background-color: #FF8E0A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-family: Rubik;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.tag-black-ab {
+    width: 190px;
+    height: 25px;
+    padding: 6px 8px 6px 8px;
+    border-radius: 0px 12px 0px 12px;
+    border: 1.5px;
+    gap: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-family: Rubik;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    border: 2px solid rgba(191, 192, 193, 1);
+    white-space: nowrap;
+}
+
+.ap-songs-container {
+    width: 90%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+
+.fade-in-right {
+    -webkit-animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-left {
+    -webkit-animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in-left {
+    0% {
+        -webkit-transform: translateX(-50px);
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-left {
+    0% {
+        -webkit-transform: translateX(-50px);
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
