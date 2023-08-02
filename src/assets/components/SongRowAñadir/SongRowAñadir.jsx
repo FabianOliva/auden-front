@@ -19,6 +19,8 @@ class SongRowAñadir extends Component {
       console.log("Quitaste la canción de la lista.");
     }
 
+    const { isAdded, onToggleSongSelection } = this.props;
+    onToggleSongSelection(isAdded ? null : this.props.songId);
     setTimeout(() => {
       this.setState({ message: "" });
     }, 1000);
@@ -42,15 +44,14 @@ class SongRowAñadir extends Component {
             <div className="song-artist">{artist}</div>
           </div>
           <div className="added-song-container">
-            {message && <p id="accion-message" style={{ color: isAdded ? "green" : "red" }}>{message}</p>}
+            {message && (
+              <p id="accion-message" style={{ color: isAdded ? "green" : "red" }}>
+                {message}
+              </p>
+            )}
           </div>
           <div className="song-options">
-            <img
-              id="agregarCancion"
-              src={imageUrl}
-              alt=""
-              onClick={this.handleToggleAddSong}
-            />
+            <img id="agregarCancion" src={imageUrl} alt="" onClick={this.handleToggleAddSong} />
           </div>
         </div>
       </>
