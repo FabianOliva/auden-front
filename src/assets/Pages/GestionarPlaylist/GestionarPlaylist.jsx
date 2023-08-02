@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BackgroundB from "../../components/BackgroundB/BackgroundB";
-import HeaderB from "../../components/HeaderB/HeaderB";
+import HeaderA from "../../components/HeaderA/HeaderA";
 import "./GestionarPlaylist.css";
 import Nav_Bar from "../../components/Nav_bar";
 import BotonesDaniNaranja from "../../components/BotonesDani/BotonesDaniNaranja";
@@ -14,7 +14,7 @@ const GestionarPlaylist = () => {
   return (
     <>
       <BackgroundB>
-        <HeaderB tituloPrincipal={playlistName2} redirectUrl="/crear-playlist" />
+        <HeaderA tituloPrincipal={playlistName2} redirectUrl="/crear-playlist" />
         <div className="infogestionarPlaylist-container fade-in-right">
           <span>Creada por:</span>
           <span>

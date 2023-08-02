@@ -24,7 +24,7 @@ export const UserProfile = () => {
         // Puedes manejar esta situación según tus requerimientos, por ejemplo, redirigiendo al usuario a la página de inicio de sesión.
         console.log("Usuario no autenticado. Redireccionar a la página de inicio de sesión.", token);
       } else {
-        console.log("Usuario autenticado", token);
+        // console.log("Usuario autenticado", token);
       }
       try {
         const response = await fetch(`http://localhost:3002/users/playlist/`, {

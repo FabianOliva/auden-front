@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AñadirCancionesAPlaylist.css";
 import { Link } from "react-router-dom";
 import BackgroundA from "../../components/BackgroundA/BackgroundA";
-import HeaderB from "../../components/HeaderB/HeaderB";
+import HeaderA from "../../components/HeaderA/HeaderA";
 import SongRowAñadir from "../../components/SongRowAñadir/SongRowAñadir";
 import BotonesDaniNaranja from "../../components/BotonesDani/BotonesDaniNaranja";
 import Nav_Bar from "../../components/Nav_bar";
@@ -109,7 +109,7 @@ const AñadirCancionesAPlaylist = () => {
   return (
     <>
       <BackgroundA>
-        <HeaderB tituloPrincipal={playlistName2} />
+        <HeaderA tituloPrincipal={playlistName2} redirectUrl="/home" />
         <div className="añadirCanciones-buscador-container ">
           <div className="ab-buscador-container fade-in-right">
             <img className="lupa" src="src/public/vector.svg" alt="" />
@@ -345,7 +345,9 @@ const AñadirCancionesAPlaylist = () => {
             ))}
         </div>
         <div className="fade-in-left">
-          <button onClick={handleSubmit}>Generar tu Playlist</button>
+          <a className="Default_btn actived" onClick={handleSubmit}>
+            Generar tu Playlist
+          </a>
         </div>
       </BackgroundA>
       <Nav_Bar />
