@@ -14,6 +14,8 @@ export const UserProfile = () => {
   const [DataUsers, setDataUsers] = useState([]);
   const [userPlaylistData, setUserPlaylistData] = useState([]);
 
+  localStorage.setItem("DataUsers", JSON.stringify(DataUsers));
+
   useEffect(() => {
     const fetchData = async () => {
       const token = cookies.get("userToken");

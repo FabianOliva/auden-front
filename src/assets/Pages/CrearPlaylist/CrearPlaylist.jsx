@@ -33,8 +33,8 @@ const CrearPlaylist = () => {
           </div>
         </div>
         <div className="cpc-crearplaylist-footer fade-in-left">
-          <Link to="/añadir-cancion">
-            <BotonesDaniNaranja opcion="Continuar" />
+          <Link to="/gestionar-playlist">
+            <BotonesDaniGris opcion="Continuar" />
           </Link>
         </div>
       </BackgroundB>

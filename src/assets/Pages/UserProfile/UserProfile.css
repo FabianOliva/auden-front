@@ -116,11 +116,13 @@
 .playlist-box-container {
   width: 340px;
   height: 545px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   gap: 20px;
   overflow-y: scroll;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .fade-in-right {

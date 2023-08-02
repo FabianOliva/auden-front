@@ -3,7 +3,7 @@ import Song_box from "../../components/Song_box";
 import "./index.css";
 import "./animations.css";
 import Filter from "../../components/filters";
-import { Last_Search_Comp, Search_Comp } from "../../components/Search_Component";
+import { Search_Comp } from "../../components/Search_Component";
 import { useEffect, useState } from "react";
 import { XScreen } from "../../components/LoadingWindow";
 import { LoadingScreen } from "../../components/LoadingWindow";
