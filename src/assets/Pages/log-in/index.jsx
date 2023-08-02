@@ -55,6 +55,7 @@ export const Login = () => {
     if (response.ok) {
       let data = await response.json();
       const token = data.token; // Obtener el token de la respuesta
+      cookies.remove("userToken");
       cookies.set("userToken", token, { expires: 1 });
       console.log(data);
 
@@ -134,6 +135,7 @@ export const Login = () => {
     if (validateForm()) {
       try {
         await login();
+        localStorage.setItem("DataUsername", formData.nombreoemail);
       } catch (error) {
         // Handle any errors that might occur during login
         console.error("An error occurred during login:", error);

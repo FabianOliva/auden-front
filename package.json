@@ -12,6 +12,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "jquery": "^3.7.0",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-emoji-render": "^2.0.1",

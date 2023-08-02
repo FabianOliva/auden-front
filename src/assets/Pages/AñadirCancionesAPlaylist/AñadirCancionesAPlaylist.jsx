@@ -25,6 +25,8 @@ const AñadirCancionesAPlaylist = () => {
       setSelectedSongs([...selectedSongs, songId]);
     }
   };
+  let userData = localStorage.getItem("DataUsers");
+  const parsedData = JSON.parse(userData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,7 +76,7 @@ const AñadirCancionesAPlaylist = () => {
       };
 
       let bodyContent = JSON.stringify({
-        user_id: dataUsers.user_id,
+        user_id: parsedData.user_id,
         playlist_name: playlistName2,
         songs: selectedSongs,
       });
@@ -89,7 +91,8 @@ const AñadirCancionesAPlaylist = () => {
       console.log(data);
 
       if (response.ok) {
-        window.location.href = `/`;
+        console.log("Playlist Creada");
+        window.location.href = "http://localhost:5173/user-profile";
       } else {
         const data = await response.json();
         setError(data.message || "Error al crear la playlist.");
@@ -342,7 +345,7 @@ const AñadirCancionesAPlaylist = () => {
             ))}
         </div>
         <div className="fade-in-left">
-          <BotonesDaniNaranja opcion="Generar tu Playlist" onClick={handleSubmit} />
+          <button onClick={handleSubmit}>Generar tu Playlist</button>
         </div>
       </BackgroundA>
       <Nav_Bar />

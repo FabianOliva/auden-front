@@ -7,6 +7,8 @@ export const CupidoMusical = () => {
   const [likeList, setLikeList] = useState([]);
   const [currentArtistIndex, setCurrentArtistIndex] = useState(0);
   const [songData, setSongData] = useState([]);
+  const [userDatas, setUserDatas] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3002/songs")
@@ -17,16 +19,26 @@ export const CupidoMusical = () => {
       .catch((error) => console.error("Error en las solicitudes:", error));
   }, []);
 
+  useEffect(() => {
+    let userData = localStorage.getItem("DataUsername");
+    fetch(`http://localhost:3002/users/${userData}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUserDatas(data); // Actualizar el estado con los datos del fetch
+        console.log(userDatas);
+      })
+      .catch((error) => console.error("Error en las solicitudes:", error));
+  }, []);
+
   const handleLike = () => {
     if (likeList.length >= 6) {
       alert("¡Has alcanzado el límite de 6 likes!");
       return;
     }
 
-    const likedArtist = songData[currentArtistIndex];
-    setLikeList([...likeList, likedArtist]);
+    const likedSong = songData[currentArtistIndex];
+    setLikeList([...likeList, likedSong.song_id]); // Agregar el song_id al array de likes
     setCurrentArtistIndex((prevIndex) => (prevIndex + 1) % songData.length);
-    console.log("Lista de likes:", [...likeList, likedArtist]);
   };
 
   const handleDislike = () => {
@@ -34,6 +46,7 @@ export const CupidoMusical = () => {
   };
 
   const handleRewind = () => {
+    // Eliminar el último song_id del array de likes
     setLikeList((prevLikes) => prevLikes.slice(0, -1));
   };
 
@@ -41,6 +54,41 @@ export const CupidoMusical = () => {
   if (songData.length === 0) {
     return <div>Cargando...</div>;
   }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      let headersList = {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+      };
+
+      let bodyContent = JSON.stringify({
+        user_id: userDatas[0].user_id,
+        playlist_name: "Cupido Musical",
+        songs: likeList,
+      });
+
+      let response = await fetch("http://localhost:3002/playlist/", {
+        method: "POST",
+        body: bodyContent,
+        headers: headersList,
+      });
+
+      let data = await response.text();
+      console.log(data);
+
+      if (response.ok) {
+        console.log("Playlist Creada");
+        window.location.href = "http://localhost:5173/user-profile";
+      } else {
+        const data = await response.json();
+        setError(data.message || "Error al crear la playlist.");
+      }
+    } catch (error) {
+      setError("Error al crear la playlist2.");
+    }
+  };
 
   return (
     <>
@@ -86,15 +134,28 @@ export const CupidoMusical = () => {
           </div>
 
           <div className="matches-generados-container">
-            {likeList.map((song, index) => (
-              <div key={index} className="matches-cover slide-in-right">
-                <img src={song.song_image_url} alt={song.song_name} />
-              </div>
-            ))}
+            {likeList.map((songId, index) => {
+              // Buscar la canción correspondiente al song_id en songData
+              const likedSong = songData.find((song) => song.song_id === songId);
+
+              // Verificar si se encontró la canción antes de mostrarla
+              if (likedSong) {
+                return (
+                  <div key={index} className="matches-cover slide-in-right">
+                    <img src={likedSong.song_image_url} alt={likedSong.song_name} />
+                  </div>
+                );
+              } else {
+                // Si no se encuentra la canción, podrías manejarlo de alguna forma (omitir o mostrar un mensaje de error)
+                return null;
+              }
+            })}
           </div>
 
           <div className="button-container-cm">
-            <a href="">Generar Playlist</a>
+            <a onClick={handleSubmit} href="">
+              Generar Playlist
+            </a>
           </div>
         </div>
       </BackgroundA>
