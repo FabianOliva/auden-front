@@ -89,13 +89,18 @@
   align-items: center;
 }
 
-.input_img.error input{
+.input_img.error input {
   border-color: red;
 }
-.labels_input.error input{
+.labels_input.error input {
   border-color: red;
 }
-.errorlogin{
+
+.errorlogin {
   color: red;
   margin-top: 5px;
+}
+
+.InputError {
+  border-color: red !important;
 }

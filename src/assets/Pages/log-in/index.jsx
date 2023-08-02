@@ -3,27 +3,15 @@ import "./index.css";
 import cookies from "js-cookie";
 
 export const Login = () => {
-  //Diseño
-  // const [password, setPassword] = useState("");
-  // const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value);
-  // };
-  // const toggleShowPassword = () => {
-  //   setShowPassword(!showPassword);
-  // };
-  //---------------USER-VALIDATOR---------------/
-
   const [fetchDatUser, setFetchDataUser] = useState([]);
 
+  //--------------------------FETCH-----------------------//
   const fetchDataUser = async () => {
     try {
       const response = await fetch(`http://localhost:3002/users`);
       const dataUsers = await response.json();
       setFetchDataUser(dataUsers);
-      console.log(dataUsers);
       //setLoading(false);
     } catch (error) {
       console.log("fallo al traer usuarios", error);
@@ -35,6 +23,7 @@ export const Login = () => {
     fetchDataUser();
   }, []);
 
+  //--------------------------LOGIN-----------------------//
   const login = async () => {
     let headersList = {
       Accept: "application/json",
@@ -56,7 +45,6 @@ export const Login = () => {
       let data = await response.json();
       const token = data.token; // Obtener el token de la respuesta
       cookies.set("userToken", token, { expires: 1 });
-      console.log(data);
 
       // Redirigir al usuario a la siguiente página después del inicio de sesión exitoso
       window.location.href = "http://localhost:5173/home";
@@ -68,6 +56,7 @@ export const Login = () => {
       setError(errorMessage);
     }
   };
+
   //--------------------------VALIDAR-----------------------//
 
   const [formData, setFormData] = useState({

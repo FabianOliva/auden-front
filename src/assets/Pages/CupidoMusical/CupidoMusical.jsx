@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./cupidoMusical.css";
 import BackgroundA from "../../components/BackgroundA/BackgroundA";
 import HeaderA from "../../components/HeaderA/HeaderA";
+import { LoadingScreen } from "../../components/LoadingWindow";
 
 export const CupidoMusical = () => {
   const [likeList, setLikeList] = useState([]);
@@ -39,7 +40,7 @@ export const CupidoMusical = () => {
 
   // Verificar si songData está vacío antes de usarlo
   if (songData.length === 0) {
-    return <div>Cargando...</div>;
+    return <LoadingScreen />;
   }
 
   return (

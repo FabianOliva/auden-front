@@ -3,7 +3,8 @@ import "./UserProfile.css";
 import { Link } from "react-router-dom";
 import BackgroundC from "../../components/BackgroundC/BackgroundC";
 import { useEffect, useState } from "react";
-import CardPortadaSimple from "../../components/CardPortadaSimple/CardPortadaSimple";
+import { XScreen } from "../../components/LoadingWindow";
+import { LoadingScreen } from "../../components/LoadingWindow";
 import CardPortadaMultiple from "../../components/CardPortadaMultiple/CardPortadaMultiple";
 import Nav_Bar from "../../components/Nav_bar";
 import cookies from "js-cookie";
@@ -12,7 +13,6 @@ export const UserProfile = () => {
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [DataUsers, setDataUsers] = useState([]);
   const [userPlaylistData, setUserPlaylistData] = useState([]);
-  const token = cookies.get("userToken");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,9 +20,7 @@ export const UserProfile = () => {
       if (!token) {
         // Si no hay token almacenado en las cookies, el usuario no está autenticado.
         // Puedes manejar esta situación según tus requerimientos, por ejemplo, redirigiendo al usuario a la página de inicio de sesión.
-        console.log("Usuario no autenticado. Redireccionar a la página de inicio de sesión.", token);
-      }else{
-        console.log("Usuario autenticado",token)
+      } else {
       }
       try {
         const response = await fetch(`http://localhost:3002/users/playlist/`, {
@@ -33,10 +31,14 @@ export const UserProfile = () => {
         const data = await response.json();
         setDataUsers(data[0]);
         setUserPlaylistData(data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
       } catch (error) {
         console.log("fallo", error);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
       }
     };
 
@@ -71,7 +73,9 @@ export const UserProfile = () => {
 
   return (
     <>
-      {!loading && (
+      {loading ? (
+        <LoadingScreen />
+      ) : (
         <BackgroundC>
           <div className="picture-name-container fade-in-left">
             <div className="picture-container">
@@ -91,17 +95,17 @@ export const UserProfile = () => {
             </div>
           </div>
 
-          <div className="playlist-user-controls">
+          <div className="playlist-user-controls fade-in-right">
             <span>
               <h5>Mis Playlist</h5>
             </span>
             <img src="src/public/divider.svg" alt="" />
             <div id="btn-crear-playlist" className="btn-crear-playlist">
-              <a href="">Crear Playlist</a>
+              <a href="/crear-playlist">Crear Playlist</a>
             </div>
           </div>
 
-          <div className="playlist-box-container">
+          <div className="playlist-box-container fade-in-left">
             {groupSongsByPlaylist().map((playlistData) => (
               <Link key={playlistData.playlist_id} to={`/playlist/${playlistData.playlist_id}`}>
                 <CardPortadaMultiple
