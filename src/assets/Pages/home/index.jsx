@@ -74,7 +74,7 @@ const Home = () => {
         </div>
       </header>
       <main className="home-main">
-        <div className="main-card">
+        <div className="main-card fade-in-right">
           <div className={`main-card-img step-${animationStep}`}></div>
           <NavLink className="link_card" to="/cupido-musical">
             <div className="main-card-text">
@@ -84,7 +84,7 @@ const Home = () => {
           </NavLink>
         </div>
 
-        <div className="main-card">
+        <div className="main-card fade-in-left">
           <div className={`main-card-img2 step2-${animationStep2}`}></div>{" "}
           <NavLink to="/musica-contextual">
             <div className="main-card-text">

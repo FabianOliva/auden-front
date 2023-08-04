@@ -263,9 +263,9 @@ export const MusicaContextual = () => {
           </div>
 
           <div className="button-container">
-            <button className={`btn-create-playlist actived`} onClick={handleSubmit}>
+            <a className="Default_btn actived" onClick={handleSubmit}>
               Crear Playlist
-            </button>
+            </a>
           </div>
         </div>
       </BackgroundA>
