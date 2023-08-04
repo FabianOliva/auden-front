@@ -9,6 +9,8 @@ export const Registeruser = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [usernameEmpty, setUsernameEmpty] = useState(true);
+  const [passwordEmpty, setPasswordEmpty] = useState(true);
 
   // Obtener el objeto de ubicación
   const location = useLocation();
@@ -21,10 +23,20 @@ export const Registeruser = () => {
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
+    if (event.target.value !== "") {
+      setUsernameEmpty(false);
+    } else {
+      setUsernameEmpty(true);
+    }
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+    if (event.target.value !== "") {
+      setPasswordEmpty(false);
+    } else {
+      setPasswordEmpty(true);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -76,31 +88,19 @@ export const Registeruser = () => {
         <div className="form_container_login">
           <div className="labels_input register">
             {/* --------------INPUT NAME--------------- */}
-            <div className="labels_input name error">
+            <div className="labels_input name">
               {/* ADD ERROR or OK */}
               <label className="label_p" htmlFor="">
                 <p>Nombre de Usuario</p>
                 <input type="text" value={username} onChange={handleUsernameChange} />
-                <span className="name_span error">
-                  {/* ADD ERROR or OK */}
-                  El nombre de usuario no está disponible
-                </span>
                 {/* --------------INPUT PASSWORD--------------- */}
               </label>{" "}
             </div>
-            <div className="labels_input password ok">
-              {/* ADD ERROR or OK */}
+            <div className="labels_input password">
               <label htmlFor="">
                 <p>Contraseña:</p>
-
                 <input type="password" value={password} onChange={handlePasswordChange} />
-
-                <span className="password_span ok">
-                  {/* ADD ERROR or OK */}
-                  Deberá contener al menos 8 caracteres.
-                </span>
                 <div className="check">
-                  <input type="checkbox" className="checkbox" name="" />
                   <p className="terms">
                     He leído y acepto los <a href="">Términos</a> y <a href="">Condiciones</a>.
                   </p>
@@ -108,9 +108,12 @@ export const Registeruser = () => {
               </label>
             </div>
           </div>
-          <button type="submit" className="Default_btn standar">
+          <a
+            type="submit"
+            onClick={handleSubmit}
+            className={`Default_btn ${!usernameEmpty && !passwordEmpty ? "actived" : "standar"} submit`}>
             Continuar
-          </button>
+          </a>
         </div>
       </form>
     </div>

@@ -14,7 +14,6 @@ const CrearPlaylist = () => {
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     setPlaylistName(inputValue);
-    console.log("Input value:", inputValue);
   };
 
   return (

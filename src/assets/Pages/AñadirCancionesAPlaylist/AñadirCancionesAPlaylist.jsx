@@ -46,9 +46,7 @@ const AñadirCancionesAPlaylist = () => {
       if (!token) {
         // Si no hay token almacenado en las cookies, el usuario no está autenticado.
         // Puedes manejar esta situación según tus requerimientos, por ejemplo, redirigiendo al usuario a la página de inicio de sesión.
-        console.log("Usuario no autenticado. Redireccionar a la página de inicio de sesión.", token);
       } else {
-        console.log("Usuario autenticado", token);
       }
       try {
         const response = await fetch(`http://localhost:3002/users/`, {
@@ -88,7 +86,6 @@ const AñadirCancionesAPlaylist = () => {
       });
 
       let data = await response.text();
-      console.log(data);
 
       if (response.ok) {
         console.log("Playlist Creada");

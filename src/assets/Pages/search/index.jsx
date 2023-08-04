@@ -5,6 +5,8 @@ import "./animations.css";
 import Filter from "../../components/filters";
 import { Search_Comp } from "../../components/Search_Component";
 import { useEffect, useState } from "react";
+import { XScreen } from "../../components/LoadingWindow";
+import { LoadingScreen } from "../../components/LoadingWindow";
 
 const Search = () => {
   const [isInputFocused, setInputFocused] = useState(false);
@@ -20,10 +22,14 @@ const Search = () => {
       const response = await fetch(`http://localhost:3002/joins`);
       const dataSongs = await response.json();
       setFetchDataSong(dataSongs);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 600);
     } catch (error) {
       console.log("fallo", error);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 600);
     }
   };
   // const fetchDataArtistAndAlbum = async () => {
@@ -77,7 +83,7 @@ const Search = () => {
             </div>
             <div className="search_top20">
               {loading ? (
-                <div>Realizando búsqueda...</div>
+                <LoadingScreen />
               ) : fetchDataSong.length > 0 ? (
                 fetchDataSong.map((song) => (
                   <Song_box
@@ -126,7 +132,7 @@ const Search = () => {
             </div>
             <div className="last_search_cont">
               {loading ? (
-                <div>Realizando búsqueda...</div>
+                <LoadingScreen />
               ) : fetchDataSong.length > 0 ? (
                 fetchDataSong.map((song) => (
                   <Search_Comp

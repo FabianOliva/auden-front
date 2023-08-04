@@ -34,6 +34,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/recuperarcuenta" element={<Recuperarcuenta />} />
         <Route path="/cupido-musical" element={<CupidoMusical />} />
         <Route path="/musica-contextual" element={<MusicaContextual />} />
+        <Route path="/crear-playlist" element={<CrearPlaylist />} />
         <Route path="/playlist-generada" element={<PlaylistGenerada />} />
         <Route path="/playlist-generada-buscador" element={<PlaylistGeneradaBuscador />} />
         <Route path="/playlist/:playlist_Id" element={<Playlist />} />
